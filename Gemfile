@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -14,6 +14,7 @@ gem 'pg'
  gem 'capistrano'
  gem "haml-rails"
  gem "haml"
+ gem "paperclip"
 
 # To use debugger
 # gem 'ruby-debug'
@@ -30,9 +31,9 @@ gem 'pg'
  group :development, :test do
   gem "factory_girl"
   gem "database_cleaner"
+  gem "cucumber-rails", ">=0.3.2"
   gem "cucumber"
-  gem "cucumber-rails"
-  gem "rspec-rails", "~>2.0.0.rc"
+  gem "rspec-rails", "~>2.0.0"
   gem "rspec"
-  gem 'webrat'
+  gem 'webrat', ">=0.7.2.beta.1"
  end

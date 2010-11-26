@@ -1,6 +1,18 @@
 CupOf::Application.routes.draw do
 
- get "/" => "main#index"
+  get "products/index"
+
+  get "products/show"
+
+ root :to => "main#index"
+ match '/contacts' => 'main#contacts', :as => :contacts
+
+ namespace :tea do
+  root :to => "main#index"
+ end
+ namespace :coffee do
+  root :to => "main#index"
+ end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

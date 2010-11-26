@@ -1,0 +1,2 @@
+module Tea::MainHelper
+end

@@ -1,0 +1,2 @@
+module Tea::ProductsHelper
+end
