@@ -8,7 +8,7 @@ gem 'rails', '3.0.1'
 gem 'pg'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
  gem 'capistrano'
