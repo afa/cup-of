@@ -1,0 +1,16 @@
+.search {
+-moz-background-clip:border;
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:transparent url(/images/modules/header/search_field.gif) no-repeat scroll 0 -22px;
+border:medium none;
+font-size:12px;
+height:16px;
+padding:4px 10px 2px 21px;
+width:149px;
+}
+
+.umenu {
+ color:#362f2d;
+ font:14px verdana;
+}

@@ -1,5 +1,7 @@
 CupOf::Application.routes.draw do
 
+  devise_for :users
+
   get "products/index"
 
   get "products/show"
@@ -12,6 +14,10 @@ CupOf::Application.routes.draw do
  end
  namespace :coffee do
   root :to => "main#index"
+ end
+ namespace :admin do
+  root :to => "main#index"
+  resource :products
  end
   # The priority is based upon order of creation:
   # first created -> highest priority.

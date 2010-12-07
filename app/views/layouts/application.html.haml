@@ -8,32 +8,38 @@
   = csrf_meta_tag
  %body{:style=>"background-color:#fbebd5;"}
   #heading
-   %div{:style=>"text-align:center;"}
-    %div{:style=>"text-align:left;width:368px;height:190px;float:right;background:url(#{image_path('hands-cup-menu.png')});"}
-     %ul{:style=>"list-style-type:none;"}
-      %li
-       = link_to "На главную", root_path
-      %li
-       = link_to "Наши контакты", contacts_path
-      %li
-       = link_to "Кофе", coffee_root_path
-      %li
-       = link_to "Чай", tea_root_path
-      %li Подарки
-      %li Аксессуары
-      %li Регистрация
-      %li Личный кабинет
-      %li Вопросы и ответы
-      %li Доставка и оплата
-      %li Специальные предложения
-      %li Новости
-      %li О чае
-     =#%div{:style=>"float:right;"}
-     =# link_to image_tag('coffee/main-cup-ur.jpg'), coffee_root_path
-    %div{:style=>"float:left;"}
-     = image_tag('left-logo-grdnt.png')
-    %div{:style=>"clear:left;"}
-  %div{:style=>"clear:all;"}
-  #left_column{:style=>"float:left;height:100%;"}
+   %table{:style=>'background-color:#cabdac;cell-padding:0px;cell-spacing:0px;'}
+    %tr
+     %td
+      =image_tag "left-logo-grdnt.png"
+     %td{:rowspan=>2}
+      %div{:style=>"text-align:left;width:368px;height:190px;background:url(#{image_path('hands-cup-menu.png')});background-color:#cabdac;"}
+       %ul{:style=>"list-style-type:none;"}
+        %li.umenu
+         = link_to_unless_current "На главную", root_path
+        %li.umenu
+         = link_to "Наши контакты", contacts_path
+        %li.umenu
+         = link_to "Кофе", coffee_root_path
+        %li.umenu
+         = link_to "Чай", tea_root_path
+        %li.umenu Подарки
+        %li.umenu Аксессуары
+        %li.umenu Регистрация
+        %li.umenu Личный кабинет
+        %li.umenu Вопросы и ответы
+        %li.umenu Доставка и оплата
+        %li.umenu Специальные предложения
+        %li.umenu Новости
+        %li.umenu О чае
+    %tr
+     %td
+      = form_for :search, :url=>'/search', :html=>{:method=>:get} do |f|
+       = f.text_field :q, :class=>"search"
+
+  .notice
+   #{notice}
+  .alert
+   #{alert}
   #content 
    = yield

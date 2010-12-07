@@ -8,13 +8,15 @@ gem 'rails', '3.0.1'
 gem 'pg'
 
 # Use unicorn as the web server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
  gem 'capistrano'
  gem "haml-rails"
  gem "haml"
  gem "paperclip"
+ gem "devise"
+ gem "cancan"
 
 # To use debugger
 # gem 'ruby-debug'
