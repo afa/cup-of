@@ -17,7 +17,7 @@ CupOf::Application.routes.draw do
  end
  namespace :admin do
   root :to => "main#index"
-  resource :products
+  resources :products
  end
   # The priority is based upon order of creation:
   # first created -> highest priority.

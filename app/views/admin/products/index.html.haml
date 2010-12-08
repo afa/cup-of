@@ -1,2 +1,2 @@
-%h1 Admin::Products#index
-%p Find me in app/views/admin/products/index.html.haml
+%table
+ = render :partial => "admin/products/product_row", :collection=>@products

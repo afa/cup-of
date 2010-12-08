@@ -33,7 +33,7 @@
         %li.umenu Новости
         %li.umenu О чае
     %tr
-     %td
+     %td{:style=>"background-color:#000000;"}
       = form_for :search, :url=>'/search', :html=>{:method=>:get} do |f|
        = f.text_field :q, :class=>"search"
 
