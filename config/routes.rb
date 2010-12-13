@@ -1,6 +1,7 @@
 CupOf::Application.routes.draw do
 
   devise_for :users
+  resources :sections
 
   get "products/index"
 

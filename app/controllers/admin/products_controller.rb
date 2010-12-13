@@ -13,6 +13,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
+   if @product.update_attributes(params[:product])
+    redirect_to admin_products_path
+   else
+    render :edit
+   end
   end
 
   def create

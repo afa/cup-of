@@ -1,0 +1,6 @@
+- @products.each do |p|
+ %div
+  = image_tag p.cover(:small), :style=>"float:left;padding: 10px;"
+  %h3 #{p.name}
+  #{p.short_descr}
+  %div{:style=>":height:20px;clear: both;"}

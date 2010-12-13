@@ -1,8 +1,8 @@
 %h1
  Продукт #{@product.id}
-= unless @product.cover_file_name.blank?
- = image_tag @product.cover(:tiny).url
- = image_tag @product.cover(:small).url
-= form_for @product, :url=>admin_product_path(@product), :method=>:put, :html=>{:multipart=>true} do |f|
+- unless @product.cover_file_name.blank?
+ = image_tag @product.cover(:tiny)
+ = image_tag @product.cover(:small)
+- form_for @product, :url=>admin_product_path(@product), :method=>:put, :html=>{:multipart=>true} do |f|
  = render :partial=>'product_form', :locals=>{:f=>f}
 

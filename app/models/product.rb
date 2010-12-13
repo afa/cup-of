@@ -4,6 +4,6 @@ class Product < ActiveRecord::Base
 
  belongs_to :section
 
- has_attached_file :cover, :styles=>{:tiny=>["72x72<", :jpg], :small=>["144x144<", :jpg], :medium=>["300x300<", :jpg]}
+ has_attached_file :cover, :styles=>{:tiny=>["72x72>", :jpg], :small=>["144x144>", :jpg], :medium=>["300x300>", :jpg]}
  # размеры картинок уточнить
 end

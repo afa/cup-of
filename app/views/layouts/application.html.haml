@@ -40,26 +40,74 @@
     %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
      = image_tag("korzina2.png")
    %tr
-    %td{:style=>"width:220px;border-right:3px black;font:14px verdana;"}
-     %ul{:style=>"padding-top:-250px;margin-top:-250px;"}
-      %li Черные&nbsp;мачо (черный&nbsp;чай)
-      %li Зеленые&nbsp;феи (зеленый&nbsp;чай)
-      %li Китайские&nbsp;сердцееды (Китайский&nbsp;чай)
-      %ul
-       %li Улун 
-       %li Пуэр
-      %li Красные&nbsp;обольстители (Красный&nbsp;чай)
-      %li Обворожительные блонди (Белый&nbsp;чай)
-      %li Тот&nbsp;еще&nbsp;фрукт (Фруктовый&nbsp;чай) 
-      %li Травяные&nbsp;кокетки (Травяной&nbsp;чай)
-      %li Свяжи&nbsp;меня! (Связанный&nbsp;чай)
-      %li У&nbsp;каждого своя&nbsp;изюминка (Чай&nbsp;с&nbsp;добавками)
-      %li Индийские&nbsp;прелестницы (Индийский&nbsp;чай)
-      %li Этногерлс&nbsp;и&nbsp;Этнобойс (Этнический&nbsp;чай)
-      %li Лучший&nbsp;твой&nbsp;подарочек (Подарочный&nbsp;чай)
+    %td{:style=>"width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
+     %ul.lmenu{:style=>"padding-top:-100px;margin-top:-100px;"}
+      %li
+       = link_to "Ароматизированный чай", section_path(Section.find_by_name('Ароматизированный чай'))
+      %ul.lmenu
+       %li
+        = link_to "На основе черного", section_path(Section.find_by_name('На основе черного')) 
+       %li
+        = link_to "На основе зеленого", section_path(Section.find_by_name('На основе зеленого')) 
+       %li
+        = link_to "Смешанные основы", section_path(Section.find_by_name('Смешанные основы')) 
+       %li
+        = link_to "Чайные напитки", section_path(Section.find_by_name('Чайные напитки')) 
+       %ul.lmenu
+        %li
+         = link_to "на основе фруктов", section_path(Section.find_by_name('на основе фруктов')) 
+        %li
+         = link_to "на основе руибоса", section_path(Section.find_by_name('на основе руибоса')) 
+        %li
+         = link_to "на основе полезных растений", section_path(Section.find_by_name('на основе полезных растений')) 
+        %li
+         = link_to "на основе мате и лапачо", section_path(Section.find_by_name('на основе мате и лапачо')) 
+        %li
+         = link_to "на основе улуна", section_path(Section.find_by_name('на основе улуна')) 
+      %li
+       = link_to "Китайский элитный чай", section_path(Section.find_by_name('Китайский элитный чай'))
+      %ul.lmenu
+       %li
+        = link_to "Элитный китайский чай в баночках", section_path(Section.find_by_name('Элитный китайский чай в баночках')) 
+       %li
+        = link_to "Белый чай", section_path(Section.find_by_name('Белый чай')) 
+       %li
+        = link_to "Желтый чай", section_path(Section.find_by_name('Желтый чай')) 
+       %li
+        = link_to "Зеленый чай", section_path(Section.find_by_name('Зеленый чай')) 
+       %li
+        = link_to "Красный чай", section_path(Section.find_by_name('Красный чай')) 
+       %li
+        = link_to "Жасминовый чай", section_path(Section.find_by_name('Жасминовый чай')) 
+       %li
+        = link_to "Пуэры", section_path(Section.find_by_name('Пуэры')) 
+       %li
+        = link_to "Улуны материковые (китайские)", section_path(Section.find_by_name('Улуны материковые (китайские)')) 
+       %li
+        = link_to "Связанный чай", section_path(Section.find_by_name('Связанный чай')) 
+       %li
+        = link_to "Традиционные чайные напитки", section_path(Section.find_by_name('Традиционные чайные напитки')) 
+       %li
+        = link_to "Элитный чай Тайвань", section_path(Section.find_by_name('Элитный чай Тайвань')) 
+      %li
+       = link_to "Плантационный индийский и цейлонский чай", section_path(Section.find_by_name('Плантационный индийский и цейлонский чай'))
+      %ul.lmenu
+       %li
+        = link_to "Плантационный черный чай Индия", section_path(Section.find_by_name('Плантационный черный чай Индия')) 
+       %li
+        = link_to "Плантационный черный чай Цейлон", section_path(Section.find_by_name('Плантационный черный чай Цейлон')) 
+      %li
+       = link_to "Фиточа", section_path(Section.find_by_name('Фиточа')) 
+      %li
+       = link_to "Чай в пакетиках", section_path(Section.find_by_name('Чай в пакетиках')) 
+      %ul.lmenu
+       %li
+        = link_to "Чай пакетированный Флёр Деланж", section_path(Section.find_by_name('Чай пакетированный Флёр Деланж'))
+      %li
+       = link_to "Японский чай", section_path(Section.find_by_name('Японский чай'))
 
 
-    %td{:style=>"width:*;"}
+    %td{:style=>"width:*;vertical-align:top;"}
      #content
       = yield
     %td{:style=>"width:120px;"}
