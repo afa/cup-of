@@ -1,2 +1,4 @@
-%h1 Admin::Products#new
-%p Find me in app/views/admin/products/new.html.haml
+= form_for @product, :url=>admin_products_path, :html=>{:multipart=>true} do |f|
+ = render :partial=>'product_form', :locals=>{:f=>f}
+
+

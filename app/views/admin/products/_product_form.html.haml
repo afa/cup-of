@@ -1,0 +1,21 @@
+%div
+ = f.label :name, "Название"
+ = f.text_field :name
+%div
+ = f.label :cover, "Фото"
+ = f.file_field :cover
+%div
+ = f.label :price, "Цена"
+ = f.text_field :price
+%div
+ = f.label :description, "Описание"
+ = f.text_area :description
+%div
+ = f.label :short_descr, "Краткое описание"
+ = f.text_area :short_descr
+%div
+ = f.label :active, "Показывать"
+ = f.check_box :active
+ = f.hidden_field :section_id
+%div
+ = f.submit "Сохранить"

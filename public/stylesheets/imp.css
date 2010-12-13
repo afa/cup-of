@@ -2,7 +2,7 @@
 -moz-background-clip:border;
 -moz-background-inline-policy:continuous;
 -moz-background-origin:padding;
-background:transparent url(/images/modules/header/search_field.gif) no-repeat scroll 0 -22px;
+background:transparent url(/images/search_field.gif) no-repeat scroll 0 -22px;
 border:medium none;
 font-size:12px;
 height:16px;
@@ -12,5 +12,19 @@ width:149px;
 
 .umenu {
  color:#362f2d;
- font:14px verdana;
+ font:13px verdana;
+ text-decoration: none;
+}
+7d4900
+a:hover.umenu {
+ color:#603913;
+ text-decoration: underline;
+}
+
+a:visited.umenu {
+ color:#7d4900;
+ text-decoration: none;
+}
+a:visited:hover.umenu {
+ text-decoration: underline;
 }

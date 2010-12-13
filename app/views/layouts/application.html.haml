@@ -6,40 +6,60 @@
   = stylesheet_link_tag :all
   = javascript_include_tag :defaults
   = csrf_meta_tag
- %body{:style=>"background-color:#fbebd5;"}
-  #heading
-   %table{:style=>'background-color:#cabdac;cell-padding:0px;cell-spacing:0px;'}
-    %tr
-     %td
-      =image_tag "left-logo-grdnt.png"
-     %td{:rowspan=>2}
-      %div{:style=>"text-align:left;width:368px;height:190px;background:url(#{image_path('hands-cup-menu.png')});background-color:#cabdac;"}
-       %ul{:style=>"list-style-type:none;"}
-        %li.umenu
-         = link_to_unless_current "На главную", root_path
-        %li.umenu
-         = link_to "Наши контакты", contacts_path
-        %li.umenu
-         = link_to "Кофе", coffee_root_path
-        %li.umenu
-         = link_to "Чай", tea_root_path
-        %li.umenu Подарки
-        %li.umenu Аксессуары
-        %li.umenu Регистрация
-        %li.umenu Личный кабинет
-        %li.umenu Вопросы и ответы
-        %li.umenu Доставка и оплата
-        %li.umenu Специальные предложения
-        %li.umenu Новости
-        %li.umenu О чае
-    %tr
-     %td{:style=>"background-color:#000000;"}
-      = form_for :search, :url=>'/search', :html=>{:method=>:get} do |f|
-       = f.text_field :q, :class=>"search"
+ %body{:style=>"background-color:#fbebd5;padding:0px;border:0px;margin:0px;"}
+  %table{:style=>"width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;border:0px;"}
+   %tr
+    %td{:colspan=>3}
+     %table{:style=>"height:248px;width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;background:left top no-repeat url(#{image_path('up-background.jpg')});"}
+      %tr
+       %td{:style=>"width:*;vertical-align:bottom;padding-bottom:24px;"}
+        = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>""} do |f|
+         = f.text_field :q, :class=>"search"
+       %td{:style=>"width:319px"}
+        %ul.umenu{:style=>"list-style-type:none;"}
+         %li
+          = link_to "На главную", root_path, :class=>'umenu'
+         %li
+          = link_to "Наши контакты", contacts_path, :class=>'umenu'
+         %li &nbsp;
+         %li
+          = link_to "Кофе", coffee_root_path, :class=>'umenu'
+         %li= link_to "Чай", tea_root_path, :class=>'umenu'
+         %li Подарки
+         %li Аксессуары
+         %li &nbsp;
+         %li Регистрация
+         %li Личный кабинет
+         %li Вопросы и ответы
+         %li Доставка и оплата
+         %li Новости
+   %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;"}
+    %td.left_menu{:style=>"font:24px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}Чай
+    %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:0px 10px;"}
+     .lenta{:style=>"width:100px;"}
+    %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
+     = image_tag("korzina2.png")
+   %tr
+    %td{:style=>"width:220px;border-right:3px black;font:14px verdana;"}
+     %ul{:style=>"padding-top:-250px;margin-top:-250px;"}
+      %li Черные&nbsp;мачо (черный&nbsp;чай)
+      %li Зеленые&nbsp;феи (зеленый&nbsp;чай)
+      %li Китайские&nbsp;сердцееды (Китайский&nbsp;чай)
+      %ul
+       %li Улун 
+       %li Пуэр
+      %li Красные&nbsp;обольстители (Красный&nbsp;чай)
+      %li Обворожительные блонди (Белый&nbsp;чай)
+      %li Тот&nbsp;еще&nbsp;фрукт (Фруктовый&nbsp;чай) 
+      %li Травяные&nbsp;кокетки (Травяной&nbsp;чай)
+      %li Свяжи&nbsp;меня! (Связанный&nbsp;чай)
+      %li У&nbsp;каждого своя&nbsp;изюминка (Чай&nbsp;с&nbsp;добавками)
+      %li Индийские&nbsp;прелестницы (Индийский&nbsp;чай)
+      %li Этногерлс&nbsp;и&nbsp;Этнобойс (Этнический&nbsp;чай)
+      %li Лучший&nbsp;твой&nbsp;подарочек (Подарочный&nbsp;чай)
 
-  .notice
-   #{notice}
-  .alert
-   #{alert}
-  #content 
-   = yield
+
+    %td{:style=>"width:*;"}
+     #content
+      = yield
+    %td{:style=>"width:120px;"}

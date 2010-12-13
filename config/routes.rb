@@ -8,6 +8,7 @@ CupOf::Application.routes.draw do
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts
+ match '/search' => 'main#search', :as => :search
 
  namespace :tea do
   root :to => "main#index"
