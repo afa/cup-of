@@ -36,7 +36,9 @@
    %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;"}
     %td.left_menu{:style=>"font:24px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}Чай
     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:0px 10px;"}
-     .lenta{:style=>"width:100px;"}
+     .lenta{:style=>"width:620px;height:100px;vertical-align:center;margin-top:31px;margin-bottom:29px;margin-left:12px;margin-right:12px;"}
+      - @m_items.each do |mord|
+       = image_tag mord.cover(:tiny), :style=>"padding:14px;"
     %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
      = image_tag("korzina2.png")
    %tr
@@ -97,7 +99,7 @@
        %li
         = link_to "Плантационный черный чай Цейлон", section_path(Section.find_by_name('Плантационный черный чай Цейлон').id) 
       %li
-       = link_to "Фиточа", section_path(Section.find_by_name('Фиточа').id) 
+       = link_to "Фиточай", section_path(Section.find_by_name('Фиточай').id) 
       %li
        = link_to "Чай в пакетиках", section_path(Section.find_by_name('Чай в пакетиках').id) 
       %ul.lmenu
@@ -108,6 +110,6 @@
 
 
     %td{:style=>"width:*;vertical-align:top;"}
-     #content
+     .content
       = yield
     %td{:style=>"width:120px;"}

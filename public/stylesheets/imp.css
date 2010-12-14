@@ -15,12 +15,17 @@ width:149px;
  font:13px verdana;
  text-decoration: none;
 }
-7d4900
+/*7d4900*/
 a:hover.umenu {
  color:#603913;
  text-decoration: underline;
 }
 
+.umenu {
+ color:#362f2d;
+ font:13px verdana;
+ text-decoration: none;
+}
 a:visited.umenu {
  color:#7d4900;
  text-decoration: none;
@@ -32,3 +37,27 @@ ul.lmenu {
  padding-left:1em;
  margin-left: 0px;
 }
+
+ul.lmenu a:link {
+ color:#362f2d;
+ text-decoration: none;
+}
+
+ul.lmenu a:hover {
+ color:#603913;
+ text-decoration: underline;
+}
+
+ul.lmenu a:visited {
+ color:#7d4900;
+ text-decoration: none;
+}
+ul.lmenu a:visited:hover {
+ text-decoration: underline;
+}
+
+.content {
+ color: #7d4900;
+ font: 14px verdana;
+}
+

@@ -17,6 +17,7 @@ gem 'pg'
  gem "paperclip"
  gem "devise"
  gem "cancan"
+ gem "will_paginate"
 
 # To use debugger
 # gem 'ruby-debug'
