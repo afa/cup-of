@@ -2,10 +2,7 @@ CupOf::Application.routes.draw do
 
   devise_for :users
   resources :sections
-
-  get "products/index"
-
-  get "products/show"
+  resources :products
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts

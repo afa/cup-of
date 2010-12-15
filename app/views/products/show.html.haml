@@ -1,0 +1,7 @@
+%div
+ = image_tag @product.cover(:small), :style=>"float:left;padding: 10px;"
+ %h3 #{@product.name}
+ #{@product.description}
+ %div{:style=>"text-align:right;padding-top:15px;"} #{@product.price}
+ %div{:style=>":height:20px;clear: both;"}
+
