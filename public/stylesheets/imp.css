@@ -33,6 +33,15 @@ a:visited.umenu {
 a:visited:hover.umenu {
  text-decoration: underline;
 }
+.l1 {
+ list-style-image: url('/images/Right.png');
+ font: 14px verdana;
+}
+
+.l2 {
+ list-style-image: url('/images/Right.png');
+ font: 12px verdana;
+}
 ul.lmenu {
  padding-left:1em;
  margin-left: 0px;

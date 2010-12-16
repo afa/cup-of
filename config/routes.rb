@@ -1,5 +1,19 @@
 CupOf::Application.routes.draw do
 
+  get "cart/new"
+
+  get "cart/edit"
+
+  get "cart/create"
+
+  get "cart/update"
+
+  get "cart/destroy"
+
+  get "cart/show"
+
+  get "cart/index"
+
   devise_for :users
   resources :sections
   resources :products

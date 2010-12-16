@@ -14,7 +14,7 @@ gem 'pg'
  gem 'capistrano'
  gem "haml-rails"
  gem "haml"
- gem "paperclip"
+ gem "paperclip", "2.3.3"
  gem "devise"
  gem "cancan"
  gem "will_paginate"
