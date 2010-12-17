@@ -42,7 +42,7 @@
     %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
      = image_tag("korzina2.png")
    %tr
-    %td{:style=>"width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
+    %td{:style=>"vertical-align:top;width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
      %ul.lmenu{:class=>"l1", :style=>"padding-top:-100px;margin-top:-100px;"}
       %li
        = link_to "Ароматизированный чай", section_path(Section.find_by_name('Ароматизированный чай').id)
@@ -113,6 +113,39 @@
         = link_to "Чай пакетированный Флёр Деланж", section_path(Section.find_by_name('Чай пакетированный Флёр Деланж').id)
       %li
        = link_to "Японский чай", section_path(Section.find_by_name('Японский чай').id)
+     %div
+      .leftmenu{:style=>"font:24px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}Кофе
+      %ul.lmenu{:class=>"l1"}
+       %li Barbera
+       %ul.lmenu{:class=>"l2"}
+        %li молотый 
+        %li в зернах
+        %li в шоколаде
+
+       %li Кофе Gut от Gutenberg
+       %ul.lmenu{:class=>"l2"}
+        %li свежеобжаренный
+        %li ароматизированный
+
+       %li зеленый кофе в зернаx
+
+       %li Bristot
+       %ul.lmenu{:class=>"l2"}
+        %li в зернах
+        %li молотый
+
+       %li Malongo
+       %ul.lmenu{:class=>"l2"}
+        %li молотый
+        %li в зернах
+        %li растворимый
+
+       %li Rombouts
+       %ul.lmenu{:class=>"l2"}
+        %li в зернах
+        %li молотый
+
+
 
 
     %td{:style=>"width:*;vertical-align:top;"}
