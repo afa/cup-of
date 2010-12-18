@@ -1,0 +1,5 @@
+%h1
+ Раздел #{@section.id}
+- form_for @section, :url=>admin_section_path(@section), :method=>:put, :html=>{:multipart=>true} do |f|
+ = render :partial=>'section_form', :locals=>{:f=>f}
+

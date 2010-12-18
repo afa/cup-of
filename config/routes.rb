@@ -1,5 +1,17 @@
 CupOf::Application.routes.draw do
 
+  get "sections/index"
+
+  get "sections/show"
+
+  get "sections/edit"
+
+  get "sections/update"
+
+  get "sections/new"
+
+  get "sections/create"
+
   get "cart/new"
 
   get "cart/edit"
@@ -17,6 +29,7 @@ CupOf::Application.routes.draw do
   devise_for :users
   resources :sections
   resources :products
+  resources :cart
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts
@@ -31,6 +44,7 @@ CupOf::Application.routes.draw do
  namespace :admin do
   root :to => "main#index"
   resources :products
+  resources :sections
  end
   # The priority is based upon order of creation:
   # first created -> highest priority.

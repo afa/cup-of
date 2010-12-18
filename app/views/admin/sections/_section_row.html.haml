@@ -1,0 +1,7 @@
+%tr
+ %td= link_to section_row.id.to_s, edit_admin_section_path(section_row)
+ %td= section_row.name
+ %td= section_row.title
+ %td= section_row.parent.andand.name
+ %td= section_row.position
+

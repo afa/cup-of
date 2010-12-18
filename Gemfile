@@ -13,6 +13,7 @@ gem 'pg'
 # Deploy with Capistrano
  gem 'capistrano'
  gem "haml-rails"
+ gem "andand"
  gem "haml"
  gem "paperclip", "2.3.3"
  gem "devise"

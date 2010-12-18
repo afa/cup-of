@@ -1,0 +1,15 @@
+%div
+ = f.label :name, "Название"
+ = f.text_field :name
+%div
+ = f.label :title, "Показываемое название"
+ = f.text_field :title
+%div
+ = f.label :position, "Позиция(less first)"
+ = f.text_field :position
+%div
+ = f.label :parent_id, "Parent"
+ = f.select :parent_id, options_from_collection_for_select(Section.all - [@section], 'id', 'name', @section.parent_id), :include_blank=>true
+%div
+ = f.submit "Сохранить"
+

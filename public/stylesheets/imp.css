@@ -44,24 +44,24 @@ a:visited:hover.umenu {
 }
 ul.lmenu {
  padding-left:1em;
- margin-left: 0px;
+ margin-left: 3px;
 }
 
-ul.lmenu a:link {
+.lmenu a:link {
  color:#362f2d;
  text-decoration: none;
 }
 
-ul.lmenu a:hover {
+.lmenu a:hover {
  color:#603913;
  text-decoration: underline;
 }
 
-ul.lmenu a:visited {
+.lmenu a:visited {
  color:#7d4900;
  text-decoration: none;
 }
-ul.lmenu a:visited:hover {
+.lmenu a:visited:hover {
  text-decoration: underline;
 }
 
