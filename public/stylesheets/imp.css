@@ -70,3 +70,21 @@ ul.lmenu {
  font: 14px verdana;
 }
 
+.content a:link {
+ color:#362f2d;
+ text-decoration: none;
+}
+
+.content a:hover {
+ color:#603913;
+ text-decoration: underline;
+}
+
+.content a:visited {
+ color:#7d4900;
+ text-decoration: none;
+}
+.content a:visited:hover {
+ text-decoration: underline;
+}
+
