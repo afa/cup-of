@@ -1,31 +1,5 @@
 CupOf::Application.routes.draw do
 
-  get "sections/index"
-
-  get "sections/show"
-
-  get "sections/edit"
-
-  get "sections/update"
-
-  get "sections/new"
-
-  get "sections/create"
-
-  get "cart/new"
-
-  get "cart/edit"
-
-  get "cart/create"
-
-  get "cart/update"
-
-  get "cart/destroy"
-
-  get "cart/show"
-
-  get "cart/index"
-
   devise_for :users
   resources :sections
   resources :products
@@ -33,6 +7,7 @@ CupOf::Application.routes.draw do
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts
+ match '/about' => 'main#about', :as => :about
  match '/search' => 'main#search', :as => :search
 
  namespace :tea do

@@ -1,2 +1,24 @@
-%h1 Cart#index
-%p Find me in app/views/cart/index.html.haml
+-if @cart.size > 0
+ Вы заказали следующие продукты:
+ %table{:style=>"width:100%;text-align:center;"}
+  %tr
+   %th
+   %th Название
+   %th Цена
+   %th Количество
+   %th Стоимость
+  - sum = 0
+  - @cart.each do |item|
+   - product = Product.find(item[:product_id])
+   - price = product.price * item[:amount].to_i
+   - sum += price
+   %tr
+    %td= link_to image_tag(product.cover(:tiny), :style=>"border:0px none;"), product_path(item[:product_id])
+    %td= product.andand.name
+    %td= product.price
+    %td= item[:amount]
+    %td= price
+    %td= button_to "Удалить", cart_index_path(:product=>product.id, :amount=>item[:amount]), :method=>:delete
+ %div{:style=>"text-align:right;"}= "На сумму: #{sum}"
+-else
+ Ваша корзина пуста

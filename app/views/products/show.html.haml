@@ -1,5 +1,15 @@
 %div
- = image_tag @product.cover(:small), :style=>"float:left;padding: 10px;"
+ %div{:style=>"width:160px;height:200px;float:left;"}
+  = link_to image_tag(@product.cover(:small), :style=>"padding: 10px;border:0px;"), product_path(@product.id)
+  %div{:style=>"padding-left:10px;"}
+   = form_tag cart_index_path, {:method=>:post} do
+    = hidden_field_tag :product, @product.id
+    %select{:id=>"ammount", :name=>"amount"}
+     -(1..9).each do |i|
+      %option{:value=>i.to_s} #{i.to_s}
+    = submit_tag "Купить", :style=>"margin-left:10px;padding:1px;font:18px bold verdana;color:#00a651;background:transparent;"
+   -#todo 
+   -#%span{:style=>"padding:5px;font: 18px bold verdana;color:#00a651;"}Купить
  %h3 #{@product.name}
  #{@product.description}
  %div{:style=>"text-align:right;padding-top:15px;"} #{@product.price}

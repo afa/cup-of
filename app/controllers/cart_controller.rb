@@ -1,5 +1,4 @@
 class CartController < ApplicationController
- before_filter :get_cart
   def new
   end
 
@@ -7,6 +6,13 @@ class CartController < ApplicationController
   end
 
   def create
+   if params[:product] and params[:amount]
+    @cart << {:product_id=>params['product'], :amount=>params['amount']}
+    c = []
+    @cart.each{|item| c << [item[:product_id].to_i, item[:amount].to_i] }
+    session[:cart] = c
+   end
+   redirect_to :back
   end
 
   def update
@@ -19,9 +25,5 @@ class CartController < ApplicationController
   end
 
   def index
-  end
- protected
-  def get_cart
-   @cart = session[:cart]
   end
 end

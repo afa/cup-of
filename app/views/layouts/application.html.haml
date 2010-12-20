@@ -17,14 +17,12 @@
          = f.text_field :q, :class=>"search"
        %td{:style=>"width:319px"}
         %ul.umenu{:style=>"list-style-type:none;"}
-         %li
-          = link_to "На главную", root_path, :class=>'umenu'
-         %li
-          = link_to "Наши контакты", contacts_path, :class=>'umenu'
-         %li &nbsp;
-         %li
-          = link_to "Кофе", coffee_root_path, :class=>'umenu'
-         %li= link_to "Чай", tea_root_path, :class=>'umenu'
+         %li= link_to "На главную", root_path, :class=>'umenu'
+         %li= link_to "Наши контакты", contacts_path, :class=>'umenu'
+         %li= link_to "О нас", about_path, :class=>'umenu'
+         -#%li &nbsp;
+         %li= link_to "Кофе", section_path(Section.find_by_name('Coffee')), :class=>'umenu'
+         %li= link_to "Чай", section_path(Section.find_by_name('Tea')), :class=>'umenu'
          %li Подарки
          %li Аксессуары
          %li &nbsp;
@@ -34,51 +32,30 @@
          %li Доставка и оплата
          %li Новости
    %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;"}
-    %td.left_menu{:style=>"font:24px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}Чай
-    %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:0px 10px;"}
-     .lenta{:style=>"width:636px;height:102px;vertical-align:center;margin-top:19px;margin-bottom:1px;margin-left:15px;margin-right:1px;"}
-      - @m_items.each do |mord|
-       = image_tag mord.cover(:mord), :style=>"padding:2px;"
-    %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
-     = image_tag("korzina2.png")
-   %tr
-    %td{:style=>"vertical-align:top;width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
-     = render :partial => 'sections/left_menu_block', :locals=>{:root => Section.find_by_name('Tea'), :clazz => 'l1'}
+    %td.left_menu{:rowspan=>2, :style=>"font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}
      %div
-      .lmenu{:style=>"font:24px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}= link_to 'Кофе', section_path(Section.find_by_name('Coffee'))
+      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to 'Чай', section_path(Section.find_by_name('Tea'))
+      = render :partial => 'sections/left_menu_block', :locals=>{:root => Section.find_by_name('Tea'), :clazz => 'l1'}
+      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to 'Кофе', section_path(Section.find_by_name('Coffee'))
       = render :partial => 'sections/left_menu_block', :locals=>{:root => Section.find_by_name('Coffee'), :clazz => 'l1'}
-      -#%ul.lmenu{:class=>"l1"}
-       %li Barbera
-       %ul.lmenu{:class=>"l2"}
-        %li молотый 
-        %li в зернах
-        %li в шоколаде
+      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to "Горячий шоколад", section_path(Section.find_by_name('Shoko'))
+      = render :partial => 'sections/left_menu_block', :locals => {:root => Section.find_by_name('Shoko'), :clazz => 'l1'}
+      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to "Аксессуары", section_path(Section.find_by_name('Acc'))
+      = render :partial => 'sections/left_menu_block', :locals => {:root => Section.find_by_name('Acc'), :clazz => 'l1'}
+      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to "Литература", section_path(Section.find_by_name('Books'))
+      = render :partial => 'sections/left_menu_block', :locals => {:root => Section.find_by_name('Books'), :clazz => 'l1'}
 
-       %li Кофе Gut от Gutenberg
-       %ul.lmenu{:class=>"l2"}
-        %li свежеобжаренный
-        %li ароматизированный
-
-       %li зеленый кофе в зернаx
-
-       %li Bristot
-       %ul.lmenu{:class=>"l2"}
-        %li в зернах
-        %li молотый
-
-       %li Malongo
-       %ul.lmenu{:class=>"l2"}
-        %li молотый
-        %li в зернах
-        %li растворимый
-
-       %li Rombouts
-       %ul.lmenu{:class=>"l2"}
-        %li в зернах
-        %li молотый
-
-
-
+    %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:0px 10px;"}
+     = render :partial => "main/mordolenta"
+    %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
+     %div
+      = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;border:0px none;"), cart_index_path
+      %div{:style=>"text-align:center;font-weight:bold;font:16px verdana;"}
+       товары
+       %span{:style=>"padding-left:10px"}
+        = @cart.size.to_s
+   %tr
+    -#%td{:style=>"vertical-align:top;width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
 
     %td{:style=>"width:*;vertical-align:top;"}
      .content
