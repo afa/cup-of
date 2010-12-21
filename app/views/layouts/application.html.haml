@@ -29,10 +29,9 @@
          %li Доставка и оплата
          %li Новости
    %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;"}
-    %td.left_menu{:rowspan=>2, :style=>"font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}
-     %div{:style=>"border-right:black solid 1px;margin-right:5px;padding-right:2px;"}
+    %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
+     %div{:style=>"margin-right:5px;padding-right:2px;"}
       = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').order('position nulls last')
-      %hr
 
     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:0px 10px;"}
      = render :partial => "main/mordolenta"
@@ -47,10 +46,13 @@
        на сумму
        %span{:style=>"padding-left:10px"}
         = @cart_sum.to_s
-   %tr
+   %tr{:style=>"border-bottom:black solid 1px;"}
     -#%td{:style=>"vertical-align:top;width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
 
-    %td{:style=>"width:*;vertical-align:top;"}
+    %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;"}
      .content
       = yield
-    %td{:style=>"width:120px;"}
+    %td{:style=>"width:120px;border-bottom:black solid 1px;"}
+   %tr
+    %td{:style=>"border-right:black solid 1px;height:20px;margin-right:5px;"} &nbsp;
+    %td{:colspan=>2, :style=>"height:20px;"} &nbsp;
