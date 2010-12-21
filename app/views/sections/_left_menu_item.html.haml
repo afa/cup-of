@@ -1,0 +1,2 @@
+.lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to left_menu_item.title || left_menu_item.name, section_path(left_menu_item)
+= render :partial => 'sections/left_menu_block', :locals=>{:root => left_menu_item, :clazz => 'l1'}

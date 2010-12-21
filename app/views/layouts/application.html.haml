@@ -1,8 +1,7 @@
 !!!
 %html
  %head
-  %title
-   CupOfTea
+  %title Чашка...
   = stylesheet_link_tag :all
   = javascript_include_tag :defaults
   = csrf_meta_tag
@@ -19,13 +18,11 @@
         %ul.umenu{:style=>"list-style-type:none;"}
          %li= link_to "На главную", root_path, :class=>'umenu'
          %li= link_to "Наши контакты", contacts_path, :class=>'umenu'
-         %li= link_to "О нас", about_path, :class=>'umenu'
-         -#%li &nbsp;
+         %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path, :class=>'umenu'
          %li= link_to "Кофе", section_path(Section.find_by_name('Coffee')), :class=>'umenu'
          %li= link_to "Чай", section_path(Section.find_by_name('Tea')), :class=>'umenu'
          %li Подарки
-         %li Аксессуары
-         %li &nbsp;
+         %li{:style=>"padding-bottom:0.5em;"} Аксессуары
          %li Регистрация
          %li Личный кабинет
          %li Вопросы и ответы
@@ -33,27 +30,23 @@
          %li Новости
    %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;"}
     %td.left_menu{:rowspan=>2, :style=>"font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;"}
-     %div
-      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to 'Чай', section_path(Section.find_by_name('Tea'))
-      = render :partial => 'sections/left_menu_block', :locals=>{:root => Section.find_by_name('Tea'), :clazz => 'l1'}
-      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to 'Кофе', section_path(Section.find_by_name('Coffee'))
-      = render :partial => 'sections/left_menu_block', :locals=>{:root => Section.find_by_name('Coffee'), :clazz => 'l1'}
-      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to "Горячий шоколад", section_path(Section.find_by_name('Shoko'))
-      = render :partial => 'sections/left_menu_block', :locals => {:root => Section.find_by_name('Shoko'), :clazz => 'l1'}
-      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to "Аксессуары", section_path(Section.find_by_name('Acc'))
-      = render :partial => 'sections/left_menu_block', :locals => {:root => Section.find_by_name('Acc'), :clazz => 'l1'}
-      .lmenu{:style=>"font:18px verdana;font-weight:bold;padding-bottom:4px;vertical-align:top;width:220px;max-width:220px;"}= link_to "Литература", section_path(Section.find_by_name('Books'))
-      = render :partial => 'sections/left_menu_block', :locals => {:root => Section.find_by_name('Books'), :clazz => 'l1'}
+     %div{:style=>"border-right:black solid 1px;margin-right:5px;padding-right:2px;"}
+      = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').order('position nulls last')
+      %hr
 
     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:0px 10px;"}
      = render :partial => "main/mordolenta"
     %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
      %div
-      = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;border:0px none;"), cart_index_path
-      %div{:style=>"text-align:center;font-weight:bold;font:16px verdana;"}
+      = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;margin-bottom:10px;border:0px none;"), cart_index_path
+      %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
        товары
        %span{:style=>"padding-left:10px"}
         = @cart.size.to_s
+      %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
+       на сумму
+       %span{:style=>"padding-left:10px"}
+        = @cart_sum.to_s
    %tr
     -#%td{:style=>"vertical-align:top;width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
 

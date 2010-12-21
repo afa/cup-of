@@ -10,5 +10,6 @@ class ApplicationController < ActionController::Base
 
   def load_cart
    @cart = (session[:cart] || []).map{|item| {:product_id => item[0], :amount => item[1]}}
+   @cart_sum = @cart.inject(0.0){|sum, i| sum + (Product.find(i[:product_id]).andand.price || 0.0) * (i[:amount] || 0) }
   end
 end

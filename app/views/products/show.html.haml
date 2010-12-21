@@ -1,6 +1,6 @@
 %div
  %div{:style=>"width:160px;height:200px;float:left;"}
-  = link_to image_tag(@product.cover(:small), :style=>"padding: 10px;border:0px;"), product_path(@product.id)
+  = image_tag(@product.cover(:small), :style=>"padding: 10px;border:0px;")
   %div{:style=>"padding-left:10px;"}
    = form_tag cart_index_path, {:method=>:post} do
     = hidden_field_tag :product, @product.id
@@ -12,6 +12,6 @@
    -#%span{:style=>"padding:5px;font: 18px bold verdana;color:#00a651;"}Купить
  %h3 #{@product.name}
  #{@product.description}
- %div{:style=>"text-align:right;padding-top:15px;"} #{@product.price}
+ %div{:style=>"padding-top:15px;"} Цена #{@product.price} руб.
  %div{:style=>":height:20px;clear: both;"}
 
