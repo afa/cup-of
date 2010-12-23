@@ -24,5 +24,11 @@ CupOf::Application.configure do
   config.action_dispatch.best_standards_support = :builtin
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  config.after_initialize do
+   Bullet.enable = true
+   Bullet.bullet_logger = true
+   Bullet.disable_browser_cache = true
+  end
 end
 

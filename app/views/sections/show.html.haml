@@ -8,7 +8,7 @@
      -(1..9).each do |i|
       %option{:value=>i.to_s} #{i.to_s}
     = submit_tag "Купить", :style=>"padding:1px;font:18px bold verdana;color:#00a651;background:transparent;"
- %h3 #{p.name}
+ %h3= link_to p.name, product_path(p.id)
  #{p.short_descr}
  %div{:style=>"padding-top:15px;"} Цена #{p.price} руб.
  %div{:style=>":height:20px;clear: both;"}

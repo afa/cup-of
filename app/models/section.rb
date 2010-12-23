@@ -6,6 +6,6 @@ class Section < ActiveRecord::Base
  has_attached_file :cover
 
  def all_products
-  self.children.inject(self.products){|prods, child| prods + child.all_products }
+  self.children.where(:active=>true).inject(self.products.where(:active=>true)){|prods, child| prods + child.all_products }
  end
 end

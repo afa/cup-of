@@ -8,6 +8,9 @@
  = f.label :position, "Позиция(less first)"
  = f.text_field :position
 %div
+ = f.label :active, "Показывать"
+ = f.check_box :active
+%div
  = f.label :parent_id, "Parent"
  = f.select :parent_id, options_from_collection_for_select(Section.all - [@section], 'id', 'name', @section.parent_id), :include_blank=>true
 %div

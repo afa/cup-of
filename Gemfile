@@ -18,7 +18,7 @@ gem 'pg'
  gem "paperclip", "2.3.3"
  gem "devise"
  gem "cancan"
- gem "will_paginate"
+ gem "will_paginate", :git=>"http://github.com/mislav/will_paginate.git", :branch=>"rails3"
 
 # To use debugger
 # gem 'ruby-debug'
@@ -32,6 +32,9 @@ gem 'pg'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
+ group :development do
+  gem "bullet", "2.0.0.beta.2"
+ end
  group :development, :test do
   gem "factory_girl"
   gem "database_cleaner"
