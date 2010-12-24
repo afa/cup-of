@@ -3,6 +3,7 @@ class SectionsController < ApplicationController
    @section = Section.find(params[:id])
    if @section
     @products = @section.all_products.paginate(:page=>params[:page] || 1, :per_page=>20)
+    @children = @section.children.where(:active=>true).order("position nulls last")
    end
   end
 
