@@ -1,9 +1,17 @@
 CupOf::Application.routes.draw do
 
+  get "purchases/create"
+
+  get "purchases/show"
+
   devise_for :users
   resources :sections
   resources :products
-  resources :cart
+  resources :cart do
+   collection do
+    delete 'destroy'
+   end
+  end
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts

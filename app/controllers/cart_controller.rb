@@ -19,6 +19,13 @@ class CartController < ApplicationController
   end
 
   def destroy
+   if params[:product] and params[:amount]
+    @cart = @cart.select{|i| not (i[:product_id].to_i == params[:product].to_i and i[:amount].to_i == params[:amount].to_i) }
+    c = []
+    @cart.each{|item| c << [item[:product_id].to_i, item[:amount].to_i] }
+    session[:cart] = c
+   end
+   redirect_to :back
   end
 
   def show

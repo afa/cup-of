@@ -1,3 +1,5 @@
+.breadcrumb
+ = render :partial => 'main/breadcrumb', :locals=>{:from => @product.section}
 %div
  %div{:style=>"width:160px;height:200px;float:left;"}
   = image_tag(@product.cover(:small), :style=>"padding: 10px;border:0px;")

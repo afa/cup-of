@@ -1,0 +1,7 @@
+- curr = from
+- arr = []
+- while curr
+ - arr << curr
+ - curr = curr.parent
+- arr.reverse!
+!= arr.map{|sect| link_to sect.title, section_path(sect.id) }.join("&nbsp/&nbsp")

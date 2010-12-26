@@ -1,3 +1,5 @@
+.breadcrumb
+ = render :partial => 'main/breadcrumb', :locals=>{:from => @section}
 - @products.each do |p|
  %div{:style=>"width:160px;height:200px;float:left;"}
   = link_to(image_tag(p.cover(:small), :style=>"padding: 10px;border:0px;"), product_path(p.id))

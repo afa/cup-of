@@ -19,6 +19,8 @@ gem 'pg'
  gem "devise"
  gem "cancan"
  gem "will_paginate", :git=>"http://github.com/mislav/will_paginate.git", :branch=>"rails3"
+ gem "hpricot"
+ gem "ruby_parser"
 
 # To use debugger
 # gem 'ruby-debug'
