@@ -1,4 +1,6 @@
 class CartController < ApplicationController
+
+
   def new
   end
 
@@ -32,5 +34,10 @@ class CartController < ApplicationController
   end
 
   def index
+   if current_user
+    @purchase = current_user.purchases.new
+   else
+    @purchase = Purchase.new
+   end
   end
 end

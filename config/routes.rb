@@ -1,6 +1,6 @@
 CupOf::Application.routes.draw do
 
-  get "purchases/create"
+  get "purchases/index"
 
   get "purchases/show"
 
@@ -12,6 +12,7 @@ CupOf::Application.routes.draw do
     delete 'destroy'
    end
   end
+  resources :purchases
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts

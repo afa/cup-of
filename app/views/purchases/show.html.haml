@@ -1,2 +1,7 @@
-%h1 Purchases#show
-%p Find me in app/views/purchases/show.html.haml
+%h3 Заказ № #{@purchase.id}
+%div
+ - @purchase.cart_items.each do |item|
+  %p
+   = item.product.name
+   %span{:style=>"padding-left:20px;"}= item.amount
+  

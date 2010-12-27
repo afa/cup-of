@@ -1,3 +1,6 @@
-UserNotification#purchase_created
+Вы купили следующие продукты:
 
-= @greeting + ", find me in app/views/user_notification/purchase_created.text.haml"
+- @purchase.cart_items.each do |item|
+ = "#{item.amount} #{item.product.name}"
+
+Вы можете посмотреть свой заказ по ссылке #{purchase_url(@purchase.id)}
