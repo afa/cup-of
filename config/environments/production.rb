@@ -32,11 +32,11 @@ CupOf::Application.configure do
   config.serve_static_assets = false
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-   :address => 'smtp.locum.ru',
-   :port => 25,
-   :domain => 'cup-of.ru'
-  }
+#  config.action_mailer.smtp_settings = {
+#   :address => 'smtp.locum.ru',
+#   :port => 25,
+#   :domain => 'cup-of.ru'
+#  }
   config.action_mailer.default_charset = 'utf-8'
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
