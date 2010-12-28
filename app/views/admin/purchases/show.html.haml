@@ -1,2 +1,13 @@
-%h1 Admin::Purchases#show
-%p Find me in app/views/admin/purchases/show.html.haml
+%h1 Покупка #{@purchase.id}
+%div email #{@purchase.u_mail}
+%div phone #{@purchase.u_phone}
+%div name #{@purchase.u_name}
+%div surname #{@purchase.u_surname}
+- if @purchase.user
+ %div #{@purchase.user.id} #{@purchase.user.name}
+%div Покупки:
+%div
+ - @purchase.cart_items.each do |cart|
+  %div product_id #{cart.product_id} amount #{cart.amount} #{cart.product.name}
+
+%div на сумму #{@purchase.cart_items.inject(0.0){|res, item| res + (item.amount * item.product.price ) } }

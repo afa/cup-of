@@ -1,2 +1,10 @@
-%h1 Admin::Purchases#index
-%p Find me in app/views/admin/purchases/index.html.haml
+%h2 Покупки
+%table
+ - @purchases.each do |item|
+  %tr
+   %td= link_to item.id.to_s, admin_purchase_path(item.id)
+   %td= item.u_name
+   %td= item.u_mail
+   %td= item.u_phone
+   %td= item.created_at
+

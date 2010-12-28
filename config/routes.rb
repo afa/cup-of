@@ -1,9 +1,5 @@
 CupOf::Application.routes.draw do
 
-  get "purchases/index"
-
-  get "purchases/show"
-
   devise_for :users
   resources :sections
   resources :products
@@ -29,6 +25,7 @@ CupOf::Application.routes.draw do
   root :to => "main#index"
   resources :products
   resources :sections
+  resources :purchases
  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
