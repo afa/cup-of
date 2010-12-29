@@ -8,6 +8,6 @@
 %div Покупки:
 %div
  - @purchase.cart_items.each do |cart|
-  %div product_id #{cart.product_id} amount #{cart.amount} #{cart.product.name}
+  %div product_id #{cart.product_id} amount #{cart.amount} #{cart.product.name} суммарно #{cart.amount * cart.product.price}
 
 %div на сумму #{@purchase.cart_items.inject(0.0){|res, item| res + (item.amount * item.product.price ) } }
