@@ -1,0 +1,8 @@
+.vert_pics{:style => "width:666px;max-width:666px;"}
+ - to_show[0, 6].each do |sect|
+  - prods = sect.all_products
+  - prod = prods[rand(prods.size)]
+  - unless prod.nil?
+   %div{:style=>"width:100px;max-width:100px;padding:5px;text-align:center;"}
+    = image_tag prod.cover(:mord)
+

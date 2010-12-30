@@ -10,6 +10,9 @@ class MainController < ApplicationController
   def contacts
   end
 
+  def transport
+  end
+
   def about
   end
 

@@ -1,0 +1,24 @@
+%div{:style=>"text-align:right;"}Здравствуйте, наш горячо любимый клиент!
+%p Спасибо Вам за Ваш заказ. Он принят и поступил в обработку. Проверьте, пожалуйста, информацию о заказе.
+%table
+ %tr
+  %th Наименование
+  %th Количество
+  %th Цена 
+  %td Стоимость
+ - @purchase.cart_items.each do |cart|
+  %tr
+   %td #{cart.product.name}
+   %td #{cart.amount}
+   %td #{cart.product.price}
+   %td #{cart.amount * cart.product.price}
+ %tr
+  %td{:colspan=>4} Ваша скидка составила: #{0} рублей
+ %tr
+  %td{:colspan=>4} Итого к оплате: #{@purchase.cart_items.inject(0.0){|res, cart| res + (cart.amount * cart.product.price) } } рублей
+%p Вы хотите узнать больше о наших скидках и акциях?
+-# Нажмите сюда (ведет ссылка на страницу с акциями)
+%p По любым вопросам, связанным с заказом, оплатой или доставкой, напишите нам на почту <a href="mailto:shop@cup-of.ru">shop@cup-of.ru</a>
+%p Мы ответим Вам в самые кратчайшие сроки.
+%p С уважением, интернет-магазин &laquo;A cup-of&raquo;.
+

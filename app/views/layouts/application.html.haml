@@ -26,14 +26,14 @@
          %li Регистрация
          %li Личный кабинет
          %li Вопросы и ответы
-         %li Доставка и оплата
+         %li= link_to "Доставка и оплата", transport_path, :class => 'umenu'
          %li Новости
    %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;background-position:top;"}
     %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
      %div{:style=>"margin-right:5px;padding-right:2px;"}
       = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').where(:active=>true).order('position nulls last')
 
-    %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png);background-position:4px 10px;"}
+    %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;"}
      = render :partial => "main/mordolenta"
     %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
      %div
@@ -47,8 +47,6 @@
        %span{:style=>"padding-left:10px"}
         = @cart_sum.to_s
    %tr{:style=>"border-bottom:black solid 1px;"}
-    -#%td{:style=>"vertical-align:top;width:220px;max-width:220px;border-right:3px black;font:14px verdana;"}
-
     %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;"}
      .content
       = yield
