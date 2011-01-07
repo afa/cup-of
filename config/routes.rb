@@ -9,6 +9,7 @@ CupOf::Application.routes.draw do
    end
   end
   resources :purchases
+  resources :articles
 
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts
@@ -16,17 +17,18 @@ CupOf::Application.routes.draw do
  match '/search' => 'main#search', :as => :search
  match '/transport' => 'main#transport', :as => :transport
 
- namespace :tea do
-  root :to => "main#index"
- end
- namespace :coffee do
-  root :to => "main#index"
- end
+# namespace :tea do
+#  root :to => "main#index"
+# end
+# namespace :coffee do
+#  root :to => "main#index"
+# end
  namespace :admin do
   root :to => "main#index"
   resources :products
   resources :sections
   resources :purchases
+  resources :articles
  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
