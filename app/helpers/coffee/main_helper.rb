@@ -1,2 +1,0 @@
-module Coffee::MainHelper
-end

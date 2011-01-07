@@ -17,12 +17,6 @@ CupOf::Application.routes.draw do
  match '/search' => 'main#search', :as => :search
  match '/transport' => 'main#transport', :as => :transport
 
-# namespace :tea do
-#  root :to => "main#index"
-# end
-# namespace :coffee do
-#  root :to => "main#index"
-# end
  namespace :admin do
   root :to => "main#index"
   resources :products
