@@ -1,0 +1,6 @@
+.article
+ - if article.pic_file_name?
+  = image_tag article.pic(:medium), :style=>"float:left;"
+ %h3= article.name
+ %div= article.body
+ %div{:style=>"clear:both;"} &nbsp;
