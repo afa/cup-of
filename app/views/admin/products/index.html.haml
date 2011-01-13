@@ -1,3 +1,8 @@
 = link_to "Add", new_admin_product_path
 %table
+ %tr
+  %th Id
+  %th Name
+  %th Description
+  %th In store?
  = render :partial => "admin/products/product_row", :collection=>@products

@@ -1,7 +1,7 @@
 !!!
 %html
  %head
-  %title Чашка...
+  %title= @title || "Чашка..."
   = stylesheet_link_tag :all
   = javascript_include_tag :defaults
   = csrf_meta_tag
@@ -9,7 +9,7 @@
   %table{:style=>"width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;border:0px;"}
    %tr
     %td{:colspan=>3}
-     %table{:style=>"height:248px;width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;background:left top no-repeat url(#{image_path('up-background.jpg')});"}
+     %table{:style=>"height:248px;width:1008px;cell-spacing:0px;cell-padding:0px;border:0px;border-spacing:0px;background:left top no-repeat url(#{image_path('up-background.jpg')});"}
       %tr
        %td{:style=>"width:*;vertical-align:bottom;padding-bottom:24px;"}
         = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>""} do |f|

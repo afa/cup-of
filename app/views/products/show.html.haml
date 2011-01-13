@@ -10,10 +10,12 @@
      -(1..9).each do |i|
       %option{:value=>i.to_s} #{i.to_s}
     = submit_tag "Купить", :style=>"margin-left:10px;padding:1px;font:18px bold verdana;color:#00a651;background:transparent;"
-   -#todo 
-   -#%span{:style=>"padding:5px;font: 18px bold verdana;color:#00a651;"}Купить
- %h3 #{@product.name}
- ! #{@product.description}
- %div{:style=>"padding-top:15px;color:red;"} Цена #{@product.price} руб.
- %div{:style=>":height:20px;clear: both;"}
+ %div
+  %h3 #{@product.name}
+  ! #{@product.description}
+  %div{:style=>"padding-top:15px;color:red;"}
+   - unless @product.in_store?
+    %span{:style=>"float:right;color:#005826;"} Нет на складе
+   Цена #{@product.price} руб.
+  %div{:style=>":height:20px;clear: both;"}
 
