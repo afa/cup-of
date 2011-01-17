@@ -5,55 +5,56 @@
   = stylesheet_link_tag :all
   = javascript_include_tag :defaults
   = csrf_meta_tag
- %body{:style=>"padding:0px;border:0px;margin:0px;text-align:center;background-color:#a67c52;"}
-  %table{:style=>"background-color:#fbebd5;width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;border:0px;text-align:left;border-collapse:collapse;"}
-   %tr
-    %td{:colspan=>3}
-     %table{:style=>"height:248px;width:1008px;cell-spacing:0px;cell-padding:0px;border:0px;border-spacing:0px;background:left top no-repeat url(#{image_path('up-background.jpg')});"}
-      %tr
-       %td{:style=>"width:*;vertical-align:bottom;padding-bottom:24px;"}
-        = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>""} do |f|
-         = f.text_field :q, :class=>"search"
-       %td{:style=>"width:319px"}
-        %ul.umenu{:style=>"list-style-type:none;"}
-         %li= link_to "На главную", root_path, :class=>'umenu'
-         %li= link_to "Наши контакты", contacts_path, :class=>'umenu'
-         %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path, :class=>'umenu'
-         %li= link_to "Кофе", section_path(Section.find_by_name('Coffee')), :class=>'umenu'
-         %li= link_to "Чай", section_path(Section.find_by_name('Tea')), :class=>'umenu'
-         %li Подарки
-         %li{:style=>"padding-bottom:0.5em;"} Аксессуары
-         %li Регистрация
-         %li Личный кабинет
-         %li Вопросы и ответы
-         %li= link_to "Доставка и оплата", transport_path, :class => 'umenu'
-         %li Новости
-   %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;background-position:top;"}
-    %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
-     %div{:style=>"margin-right:5px;padding-right:2px;"}
-      = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').where(:active=>true).order('position nulls last')
+ %body{:style=>"padding:0px;border:0px;margin:0px;background-color:#a67c52;"}
+  %div{:align=>"center"}
+   %table{:style=>"background-color:#fbebd5;width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;border:0px;text-align:left;border-collapse:collapse;"}
+    %tr
+     %td{:colspan=>3}
+      %table{:style=>"height:248px;width:1008px;cell-spacing:0px;cell-padding:0px;border:0px;border-spacing:0px;background:left top no-repeat url(#{image_path('up-background.jpg')});"}
+       %tr
+        %td{:style=>"width:*;vertical-align:bottom;padding-bottom:24px;"}
+         = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>""} do |f|
+          = f.text_field :q, :class=>"search"
+        %td{:style=>"width:319px"}
+         %ul.umenu{:style=>"list-style-type:none;"}
+          %li= link_to "На главную", root_path, :class=>'umenu'
+          %li= link_to "Наши контакты", contacts_path, :class=>'umenu'
+          %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path, :class=>'umenu'
+          %li= link_to "Кофе", section_path(Section.find_by_name('Coffee')), :class=>'umenu'
+          %li= link_to "Чай", section_path(Section.find_by_name('Tea')), :class=>'umenu'
+          %li Подарки
+          %li{:style=>"padding-bottom:0.5em;"} Аксессуары
+          %li Регистрация
+          %li Личный кабинет
+          %li Вопросы и ответы
+          %li= link_to "Доставка и оплата", transport_path, :class => 'umenu'
+          %li Новости
+    %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;background-position:top;"}
+     %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
+      %div{:style=>"margin-right:5px;padding-right:2px;"}
+       = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').where(:active=>true).order('position nulls last')
 
-    %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;"}
-     = render :partial => "main/mordolenta"
-    %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
-     %div
-      = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;margin-bottom:10px;border:0px none;"), cart_index_path
-      %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
-       товары
-       %span{:style=>"padding-left:10px"}
-        = @cart.size.to_s
-      %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
-       на сумму
-       %span{:style=>"padding-left:10px"}
-        = @cart_sum.to_s
-   %tr{:style=>"border-bottom:black solid 1px;"}
-    %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;"}
-     .content
-      = yield
-    %td{:style=>"width:120px;border-bottom:black solid 1px;"}
-   %tr
-    %td{:style=>"border-right:black solid 1px;height:20px;margin-right:5px;"} &nbsp;
-    %td{:colspan=>2, :style=>"height:20px;"} &nbsp;
+     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;"}
+      = render :partial => "main/mordolenta"
+     %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
+      %div
+       = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;margin-bottom:10px;border:0px none;"), cart_index_path
+       %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
+        товары
+        %span{:style=>"padding-left:10px"}
+         = @cart.size.to_s
+       %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
+        на сумму
+        %span{:style=>"padding-left:10px"}
+         = @cart_sum.to_s
+    %tr{:style=>"border-bottom:black solid 1px;"}
+     %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;"}
+      .content
+       = yield
+     %td{:style=>"width:120px;border-bottom:black solid 1px;"}
+    %tr
+     %td{:style=>"border-right:black solid 1px;height:20px;margin-right:5px;"} &nbsp;
+     %td{:colspan=>2, :style=>"height:20px;"} &nbsp;
 
   <!-- Yandex.Metrika counter -->
   <div style="display:none;"><script type="text/javascript">
