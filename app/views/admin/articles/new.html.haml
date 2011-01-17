@@ -1,2 +1,3 @@
-%h1 Admin::Articles#new
-%p Find me in app/views/admin/articles/new.html.haml
+= form_for @article, :url=>admin_articles_path, :html=>{:multipart=>true} do |f|
+ = render :partial=>'article_form', :locals=>{:f=>f}
+

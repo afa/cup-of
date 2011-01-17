@@ -21,6 +21,7 @@ gem 'pg'
  gem "will_paginate", :git=>"http://github.com/mislav/will_paginate.git", :branch=>"rails3"
  gem "hpricot"
  gem "ruby_parser"
+ gem "sanitize"
 
 # To use debugger
 # gem 'ruby-debug'

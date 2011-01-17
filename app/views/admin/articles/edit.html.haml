@@ -1,2 +1,9 @@
-%h1 Admin::Articles#edit
-%p Find me in app/views/admin/articles/edit.html.haml
+%h1
+ Статья #{@article.id}
+- unless @article.pic_file_name.blank?
+ = image_tag @article.pic.path
+ = image_tag @article.pic.path
+- form_for @article, :url=>admin_article_path(@article), :method=>:put, :html=>{:multipart=>true} do |f|
+ = render :partial=>'article_form', :locals=>{:f=>f}
+
+

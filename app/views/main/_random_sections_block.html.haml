@@ -1,11 +1,12 @@
-.vert_pics{:style => "width:648px;max-width:648px;height:330px;max-height:330px;"}
+.vert_pics{:style => "width:648px;max-width:648px;height:330px;max-height:330px;margin-top:15px;"}
  - to_show[0, 4].each do |sect|
   - prods = sect.all_products
   - prod = prods[rand(prods.size)]
   - unless prod.nil?
    %div{:style=>"float:left;height:300px;max-height:300px;width:150px;max-width:150px;padding:5px;border:solid black 1px;text-align:center;"}
-    = link_to image_tag(prod.cover(:small), :style=>"padding:3px;border:0px;"), product_path(prod.id)
-    %div{:style=>"height:130px;max-height:130px;overflow:hidden;"}
-     %div{:style=>"font-size:14px;font-weight:bold;"}= link_to prod.name, product_path(prod.id)
-     %div{:style=>"font-size:12px;font-weight:normal;text-align:left;"}= prod.short_descr #.andand.split(' ')[0, 10].join(' ')
+    %div{:style=>"width:150px;height:150px;"}
+     = link_to image_tag(prod.cover(:small), :style=>"padding:3px;border:0px;"), product_path(prod.id)
+    %div{:style=>"height:125px;max-height:125px;overflow:hidden;"}
+     %div{:style=>"font-size:14px;font-weight:bold;line-height:15px;margin-bottom:5px;"}= link_to prod.name, product_path(prod.id)
+     %div{:style=>"font-size:12px;font-weight:normal;text-align:left;line-height:15px;"}= prod.short_descr #.andand.split(' ')[0, 10].join(' ')
     %div{:style=>"color:red;font-size:12px;"}= "Цена #{prod.price} руб."

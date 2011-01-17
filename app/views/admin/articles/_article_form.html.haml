@@ -1,0 +1,18 @@
+%div
+ = f.label :name, "Название"
+ = f.text_field :name
+%div
+ = f.label :pic, "КДПВ"
+ = f.file_field :pic
+%div
+ = f.label :on_main, "На главную"
+ = f.check_box :on_main
+%div
+ = f.label :active, "Показывать"
+ = f.check_box :active
+%div
+ = f.label :body, "Статья"
+ = f.text_area :body
+%div
+ = f.submit "Сохранить"
+

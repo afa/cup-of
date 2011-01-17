@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   def index
+   @article = Article.where(:active=>true, :on_main=>true).order("created_at desc").first
   end
 
   def search
