@@ -33,7 +33,7 @@ class Admin::ProductsController < ApplicationController
 
  protected
   def get_products
-   @products = Product.all
+   @products = Product.order("id desc").all
   end
 
   def get_product
@@ -41,6 +41,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new_product
-   @product = Section.find_by_name('Tea').products.new
+   @product = Product.new
   end
 end

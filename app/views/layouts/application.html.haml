@@ -34,7 +34,7 @@
       %div{:style=>"margin-right:5px;padding-right:2px;"}
        = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').where(:active=>true).order('position nulls last')
 
-     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;"}
+     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;"}
       = render :partial => "main/mordolenta"
      %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
       %div
@@ -48,13 +48,15 @@
         %span{:style=>"padding-left:10px"}
          = @cart_sum.to_s
     %tr{:style=>"border-bottom:black solid 1px;"}
-     %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;"}
-      .content
+     %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;background-color:white;"}
+      .content{:style=>"text-align:justify;"}
        = yield
      %td{:style=>"width:120px;border-bottom:black solid 1px;"}
     %tr
      %td{:style=>"border-right:black solid 1px;height:20px;margin-right:5px;"} &nbsp;
-     %td{:colspan=>2, :style=>"height:20px;"} &nbsp;
+     %td{:style=>"height:20px;background-color:white;"} &nbsp;
+     %td{:style=>"height:20px;"} &nbsp;
+     -#%td{:colspan=>2, :style=>"height:20px;"} &nbsp;
 
   <!-- Yandex.Metrika counter -->
   <div style="display:none;"><script type="text/javascript">
