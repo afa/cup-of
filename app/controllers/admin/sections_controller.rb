@@ -35,7 +35,7 @@ class Admin::SectionsController < ApplicationController
   end
  protected
   def get_sections
-   @sections = Section.all
+   @sections = Section.order("id").all
   end
 
   def get_section

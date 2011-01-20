@@ -32,9 +32,9 @@
     %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;background-position:top;"}
      %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
       %div{:style=>"margin-right:5px;padding-right:2px;"}
-       = render :partial => 'sections/left_menu_item', :collection => Section.where('parent_id is null').where(:active=>true).order('position nulls last')
+       = render :partial => 'sections/left_menu_item', :collection => Section.where("parent_id is null and active = 't'").order('position nulls last')
 
-     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;"}
+     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
       = render :partial => "main/mordolenta"
      %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
       %div
@@ -48,8 +48,8 @@
         %span{:style=>"padding-left:10px"}
          = @cart_sum.to_s
     %tr{:style=>"border-bottom:black solid 1px;"}
-     %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;background-color:white;"}
-      .content{:style=>"text-align:justify;"}
+     %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;border-right:black solid 1px;background-color:white;"}
+      .content{:style=>"text-align:justify;padding-right:5px;"}
        = yield
      %td{:style=>"width:120px;border-bottom:black solid 1px;"}
     %tr

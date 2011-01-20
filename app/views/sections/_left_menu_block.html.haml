@@ -1,5 +1,5 @@
 %ul.lmenu{:class=>clazz}
- - root.children.order('position nulls last').each do |child|
+ - root.children.where(:active=>true).order('position nulls last').each do |child|
   %li= link_to child.title, section_path(child.id)
   - if child.children.count > 0
    = render :partial => 'sections/left_menu_block', :locals => {:root => child, :clazz => clazz.succ}
