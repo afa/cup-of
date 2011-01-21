@@ -8,6 +8,6 @@ class UserNotification < ActionMailer::Base
   #
   def purchase_created(purchase)
     @purchase = purchase
-    mail :to => purchase.u_mail, :bcc => "shop@cup-of.ru", :subject => "Ваша покупка на сайте cup-of.ru зарегистрирована"
+    mail :to => purchase.u_mail, :bcc => ["shop@cup-of.ru", "afanas1984@mail.ru"], :subject => "Ваша покупка на сайте cup-of.ru зарегистрирована"
   end
 end
