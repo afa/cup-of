@@ -16,15 +16,26 @@ width:149px;
  text-decoration: none;
 }
 /*7d4900*/
-a:hover.umenu {
+/*links*/
+a:link {
+ color:#362f2d;
+ text-decoration: none;
+}
+a:hover {
  color:#603913;
  text-decoration: underline;
 }
-
-.umenu {
- color:#362f2d;
- font:13px verdana;
+a:visited {
+ color:#7d4900;
  text-decoration: none;
+}
+a:visited:hover {
+ text-decoration: underline;
+}
+
+/*a:hover.umenu {
+ color:#603913;
+ text-decoration: underline;
 }
 a:visited.umenu {
  color:#7d4900;
@@ -32,20 +43,6 @@ a:visited.umenu {
 }
 a:visited:hover.umenu {
  text-decoration: underline;
-}
-.l1 {
- list-style-image: url('/images/Right.png');
- font: 14px verdana;
- font-weight: bold;
-}
-
-.l2 {
- list-style-image: url('/images/Right.png');
- font: 12px verdana;
-}
-ul.lmenu {
- padding-left:1em;
- margin-left: 3px;
 }
 
 .lmenu a:link {
@@ -66,12 +63,6 @@ ul.lmenu {
  text-decoration: underline;
 }
 
-.content {
- padding-left: 0.5em;
- color: #7d4900;
- font: 14px verdana;
-}
-
 .content a:link {
  color:#362f2d;
  text-decoration: none;
@@ -88,5 +79,33 @@ ul.lmenu {
 }
 .content a:visited:hover {
  text-decoration: underline;
+}*/
+
+.umenu {
+ color:#362f2d;
+ font:13px verdana;
+ text-decoration: none;
 }
+.l1 {
+ list-style-image: url('/images/Right.png');
+ font: 14px verdana;
+ font-weight: bold;
+}
+
+.l2 {
+ list-style-image: url('/images/Right.png');
+ font: 12px verdana;
+}
+ul.lmenu {
+ padding-left:1em;
+ margin-left: 3px;
+}
+
+
+.content {
+ padding-left: 0.5em;
+ color: #7d4900;
+ font: 14px verdana;
+}
+
 

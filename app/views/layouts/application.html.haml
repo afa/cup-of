@@ -24,8 +24,8 @@
           %li= link_to "Чай", section_path(Section.find_by_name('Tea')), :class=>'umenu'
           %li Подарки
           %li{:style=>"padding-bottom:0.5em;"} Аксессуары
-          %li Регистрация
-          %li Личный кабинет
+          %li= user_signed_in? ? link_to_unless_current("Личный кабинет", profile_path) : link_to_unless_current("Регистрация", new_user_registration_path)
+          %li= user_signed_in? ? link_to_unless_current("Выход", destroy_user_session_path) : link_to_unless_current("Вход", new_user_session_path) 
           %li Вопросы и ответы
           %li= link_to "Доставка и оплата", transport_path, :class => 'umenu'
           %li Новости

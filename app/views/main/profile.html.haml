@@ -1,0 +1,14 @@
+
+.purchases
+ .head
+  %h3 Покупки
+ %table
+  - @purchases.each do |p|
+   %tr{:class => cycle("even", "odd")}
+    %td Заказ № #{p.id}
+    %td
+     - p.cart_items.each do |item|
+      %p
+       = item.product.name
+       %span{:style=>"padding-left:20px;"}= item.amount
+

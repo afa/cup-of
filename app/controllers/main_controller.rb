@@ -1,4 +1,7 @@
 class MainController < ApplicationController
+
+ before_filter :authenticate_user!, :only => :profile
+
   def index
    @article = Article.where(:active=>true, :on_main=>true).order("created_at desc").first
   end
@@ -15,6 +18,12 @@ class MainController < ApplicationController
   end
 
   def about
+  end
+
+  def profile
+   if user_signed_in?
+    @purchases = Purchase.where("user_id = :uid or u_mail = :umail", :uid => current_user.id, :umail => current_user.email).order("id").all
+   end
   end
 
 end

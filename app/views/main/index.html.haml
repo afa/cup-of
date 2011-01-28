@@ -42,6 +42,7 @@
  %li для семейного взаимопонимания
  %li просто для себя... 
 %p{:style=>"text-align:right;"} Отныне волшебство роскошного вкуса всегда будет с вами. 
+= render :partial => 'main/random_sections_block', :locals=>{:to_show => Section.where("active='t' and (parent_id in (:ids) or id in (:ids))", :ids=>[Section.find_by_name('Acc')].map(&:id)).order('random()').limit(4)}
 
 
 %p &nbsp;

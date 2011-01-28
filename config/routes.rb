@@ -11,11 +11,16 @@ CupOf::Application.routes.draw do
   resources :purchases
   resources :articles
 
+ as :user do
+  get "/login" => "devise/sessions#new"
+  get "/logout" => "devise/sessions#destroy"
+ end
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts
  match '/about' => 'main#about', :as => :about
  match '/search' => 'main#search', :as => :search
  match '/transport' => 'main#transport', :as => :transport
+ match '/profile' => 'main#profile', :as => :profile
 
  namespace :admin do
   root :to => "main#index"
