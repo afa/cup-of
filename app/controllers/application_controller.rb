@@ -3,6 +3,11 @@ class ApplicationController < ActionController::Base
   before_filter :get_m_items
   before_filter :load_cart
 
+  rescue_from CanCan::AccessDenied do |exception|
+   flash[:alert] = exception.message
+   redirect_to root_url
+  end
+
  protected
   def get_m_items
    @m_items = Product.where(:active=>true).order('random()').limit(6)

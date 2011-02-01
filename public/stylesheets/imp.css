@@ -10,6 +10,10 @@ padding:4px 10px 2px 21px;
 width:149px;
 }
 
+.semibold {
+ font-weight: 700;
+}
+
 .umenu {
  color:#362f2d;
  font:13px verdana;

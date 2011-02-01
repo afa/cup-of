@@ -1,5 +1,6 @@
 %tr
  %td= link_to product_row.id.to_s, edit_admin_product_path(product_row) 
  %td= product_row.name
+ %td= product_row.artikul
  %td= product_row.description
  %td= product_row.in_store? ? "Да" : "Нет"
