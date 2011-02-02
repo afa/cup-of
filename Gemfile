@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.1'
+gem 'rails', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -22,6 +22,7 @@ gem 'pg'
  gem "hpricot"
  gem "ruby_parser"
  gem "sanitize"
+ gem "jquery-rails"
 
 # To use debugger
 # gem 'ruby-debug'

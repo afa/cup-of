@@ -37,6 +37,12 @@
        %td= form.label :u_mail, "E-Mail *"
        %td= form.text_field :u_mail
       %tr
+       %td= form.label :address, "Адрес доставки *"
+       %td= form.text_area :address
+      %tr
+       %td= form.label :comment, "Комментарий"
+       %td= form.text_area :comment
+      %tr
        %td= form.label :u_phone, "Номер телефона *"
        %td= form.text_field :u_phone
      = form.submit "Создать заказ"
