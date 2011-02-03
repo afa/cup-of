@@ -2,7 +2,7 @@
  = render :partial => 'main/breadcrumb', :locals=>{:from => @product.section}
 %div
  %div{:style=>"width:160px;height:200px;float:left;"}
-  = image_tag(@product.cover(:small), :style=>"padding: 10px;border:0px;")
+  = link_to image_tag(@product.cover(:small), :style=>"padding: 10px;border:0px;"), image_path(@product.cover(:original)), :class => "lightbox"
   %div{:style=>"padding-left:10px;"}
    = form_tag cart_index_path, {:method=>:post} do
     = hidden_field_tag :product, @product.id
@@ -18,4 +18,8 @@
     %span{:style=>"float:right;color:#005826;"} Нет на складе
    Цена #{@product.price} руб.
   %div{:style=>":height:20px;clear: both;"}
-
+  <script type="text/javascript">
+  $(function() {
+  $('a.lightbox').lightBox(); // Select all links with lightbox class
+  });
+  </script>
