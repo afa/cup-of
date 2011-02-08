@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
  protected
   def get_m_items
-   @m_items = Product.where(:active=>true).order('random()').limit(6)
+   @m_items = Product.where(:active=>true).order('random()').limit(30)
   end
 
   def load_cart

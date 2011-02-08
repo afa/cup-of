@@ -2,7 +2,8 @@
  %div{:style=>"width:160px;height:200px;float:left;"}
   = link_to(image_tag(p.cover(:small), :style=>"padding: 10px;border:0px;"), product_path(p.id))
   %div{:style=>"padding-left:10px;"}
-   = form_tag cart_index_path, {:method=>:post} do
+   = form_tag cart_index_path, {:method=>:post, :remote=>true, :format=>'js'} do
+    %div{:id=>"product_notice_#{p.id}"}
     = hidden_field_tag :product, p.id
     %select{:id=>"ammount", :name=>"amount"}
      -(1..9).each do |i|

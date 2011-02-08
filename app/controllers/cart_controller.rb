@@ -14,7 +14,14 @@ class CartController < ApplicationController
     @cart.each{|item| c << [item[:product_id].to_i, item[:amount].to_i] }
     session[:cart] = c
    end
-   redirect_to :back
+   respond_to do |format|
+    format.html {redirect_to :back}
+    format.js {
+     render :update do |page|
+      page["#product_notice_#{params[:product]}"].html("<span style=\"color:green;font-size:10px;\">Отправлено в корзину</span>")
+     end
+    }
+   end
   end
 
   def update
