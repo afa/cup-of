@@ -9,6 +9,7 @@ class CartController < ApplicationController
 
   def create
    if params[:product] and params[:amount]
+    found, nonfound = @cart.partition{|i| i[:product_id] == params[:product] }
     @cart << {:product_id=>params['product'], :amount=>params['amount']}
     c = []
     @cart.each{|item| c << [item[:product_id].to_i, item[:amount].to_i] }

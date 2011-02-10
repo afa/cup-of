@@ -11,14 +11,14 @@ require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumb
 require 'cucumber/rails/world'
 require 'cucumber/web/tableish'
 
-require 'webrat'
-require 'webrat/core/matchers'
+#require 'webrat'
+#require 'webrat/core/matchers'
 require 'rspec/rails'
 
-Webrat.configure do |config|
-  config.mode = :rack
-  config.open_error_files = false # Set to true if you want error pages to pop up in the browser
-end
+#Webrat.configure do |config|
+#  config.mode = :rack
+#  config.open_error_files = false # Set to true if you want error pages to pop up in the browser
+#end
 
 
 # If you set this to false, any error raised from within your app will bubble 
