@@ -24,6 +24,7 @@ gem 'pg'
  gem "ruby_parser"
  gem "sanitize"
  gem "jquery-rails"
+ gem "nokogiri"
 
 # To use debugger
 # gem 'ruby-debug'
