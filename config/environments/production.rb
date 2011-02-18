@@ -55,4 +55,4 @@ CupOf::Application.configure do
   config.active_support.deprecation = :notify
 end
 
-XML_BASE = "/home/hosting_cup-of"
+XML_BASE = "/home/hosting_cup-of/xml"
