@@ -36,7 +36,17 @@ namespace :xml do
     products = Product.where(:name=>val[:name].strip).all if products.empty?
     if products.empty?
      nm = val[:name].gsub(/\s*\(*Gutenberg\)*\s*/u, ' ').strip
-     puts "try #{nm}"
+     #puts "try #{nm}"
+     products = Product.where(:name=>nm).all
+    end
+    puts "not found #{nm}" if products.empty?
+    next if products.empty?
+    if val.has_key?(:count)
+     if val[:count].to_i > 0
+      products.each{|p| p.update_attributes :in_store => true }
+     else
+      products.each{|p| p.update_attributes :in_store => false }
+     end
     end
    end
   end
