@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   attr_accessible :login
   has_many :purcases
 
+  attr_accessor :join_cart
+  attr_accessible :join_cart
  protected
   def self.find_for_database_authentication(conditions)
    login = conditions.delete(:login)

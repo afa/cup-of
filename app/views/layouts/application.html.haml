@@ -43,11 +43,11 @@
        = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;margin-bottom:10px;border:0px none;"), cart_index_path
        %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
         товары
-        %span{:style=>"padding-left:10px"}
+        %span#cart_size{:style=>"padding-left:10px"}
          = @cart.size.to_s
        %div{:style=>"text-align:center;font-weight:bold;font:14px verdana;"}
         на сумму
-        %span{:style=>"padding-left:10px"}
+        %span#cart_amount{:style=>"padding-left:10px"}
          = @cart_sum.to_s
     %tr{:style=>"border-bottom:black solid 1px;"}
      %td{:style=>"width:*;vertical-align:top;border-bottom:black solid 1px;border-right:black solid 1px;background-color:white;"}

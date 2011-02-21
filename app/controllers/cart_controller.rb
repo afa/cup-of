@@ -18,8 +18,11 @@ class CartController < ApplicationController
    respond_to do |format|
     format.html {redirect_to :back}
     format.js {
+     load_cart
      render :update do |page|
       page["#product_notice_#{params[:product]}"].html("<span style=\"color:green;font-size:10px;\">Отправлено в корзину</span>")
+      page["#cart_size"].html(@cart.size.to_s)
+      page["#cart_amount"].html(@cart_sum.to_s)
      end
     }
    end
