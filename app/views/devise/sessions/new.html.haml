@@ -8,6 +8,8 @@
     = f.label :password, "Пароль"
     %br/
     = f.password_field :password
+  - unless @cart.andand.empty?
+    %p объединить
   - if devise_mapping.rememberable?
     %p
       = f.check_box :remember_me

@@ -31,6 +31,8 @@ namespace :xml do
     store[id][:count] = cnt
    end
    storeids=[]
+   fnd = 0
+   nfnd = 0
    store.each do |key, val|
     products = Product.where(:artikul=>val[:art].strip).all
     products = Product.where(:name=>val[:name].strip).all if products.empty?
@@ -39,8 +41,11 @@ namespace :xml do
      #puts "try #{nm}"
      products = Product.where(:name=>nm).all
     end
-    puts "not found #{nm}" if products.empty?
-    next if products.empty?
+    if products.empty?
+     nfnd += 1
+     puts "not found #{nm}"
+     next
+    end
     if val.has_key?(:count)
      if val[:count].to_i > 0
       products.each{|p| p.update_attributes :in_store => true }
@@ -48,7 +53,9 @@ namespace :xml do
       products.each{|p| p.update_attributes :in_store => false }
      end
     end
+    fnd += 1
    end
+   puts "found #{fnd}, not #{nfnd}"
   end
  end
 end
