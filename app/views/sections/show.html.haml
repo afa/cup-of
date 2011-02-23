@@ -16,6 +16,9 @@
  %div
   %h3= link_to p.name, product_path(p.id)
   #{p.short_descr}
+  %div{:style=>"padding-top:15px;color:red;"}
+   - unless p.in_store?
+    %span{:style=>"float:right;color:#005826;"} Нет на складе
   %div{:style=>"padding-top:15px;color:red;"} Цена #{p.price} руб.
   %div{:style=>":height:20px;clear: both;"}
 = will_paginate(@products)
