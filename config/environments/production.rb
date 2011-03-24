@@ -56,3 +56,7 @@ CupOf::Application.configure do
 end
 
 XML_BASE = "/home/hosting_cup-of/xml"
+WGET_PATH = "/usr/bin/wget"
+WG_USER = "wintergreen"
+WG_PASS = "sR24qPHM"
+WG_PREFIX = "wintergreen.ru/httpdocs/upload/1000_"

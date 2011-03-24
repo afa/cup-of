@@ -1,10 +1,15 @@
 require "nokogiri"
 namespace :xml do
+ desc "load from wg"
+ task "load" => :environment do
+  `#{WGET_PATH} ftp://#{WG_USER}:#{WG_PASS}@#{WG_PREFIX}catalog.xml -q -nc -P /home/hosting_cup-of/xml`
+  `#{WGET_PATH} ftp://#{WG_USER}:#{WG_PASS}@#{WG_PREFIX}offers.xml -q -nc -P /home/hosting_cup-of/xml`
+ end
  namespace :process do
   desc "import from xml in-store values"
   task :in_store => :environment do
-   fl1 = File.join(XML_BASE, "WG_catalog.xml")
-   fl2 = File.join(XML_BASE, "WG_offers.xml")
+   fl1 = File.join(XML_BASE, "1000_catalog.xml")
+   fl2 = File.join(XML_BASE, "1000_offers.xml")
    doc = Nokogiri::XML(File.open(fl1, 'r'))
    encoding = doc.encoding
    store = {}
