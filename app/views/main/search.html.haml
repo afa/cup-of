@@ -11,6 +11,6 @@
     = submit_tag "Купить", :style=>"padding:1px;font:18px bold verdana;color:#00a651;background:transparent;"
  %h3= link_to p.name, product_path(p.id)
  #{p.short_descr}
- %div{:style=>"padding-top:15px;color:red;"} Цена #{p.price} руб.
+ %div{:style=>"padding-top:15px;color:red;"} Цена #{p.current_price(current_user)} руб.
  %div{:style=>":height:20px;clear: both;"}
 = will_paginate(@searches)

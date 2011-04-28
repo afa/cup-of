@@ -1,4 +1,5 @@
-class ApplicationController < ActionController::Base
+class Admin::ApplicationController < ActionController::Base
   protect_from_forgery
+  layout "admin/application"
   #before_filter :authorize!
 end

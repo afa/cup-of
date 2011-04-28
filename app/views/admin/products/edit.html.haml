@@ -1,6 +1,6 @@
 %h1
  Продукт #{@product.id}
-- unless @product.cover_file_name.blank?
+- if @product.cover_file_name?
  = image_tag @product.cover(:tiny)
  = image_tag @product.cover(:small)
 - form_for @product, :url=>admin_product_path(@product), :method=>:put, :html=>{:multipart=>true} do |f|

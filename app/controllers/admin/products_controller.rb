@@ -1,4 +1,4 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::ApplicationController
   before_filter :get_products, :only=>[:index]
   before_filter :get_product, :only=>[:show, :edit, :update]
   before_filter :new_product, :only=>[:new, :create]

@@ -1,4 +1,4 @@
-class Admin::PurchasesController < ApplicationController
+class Admin::PurchasesController < Admin::ApplicationController
  before_filter :get_purchase, :only => [:show]
  before_filter :get_purchases, :only => [:index]
   def index

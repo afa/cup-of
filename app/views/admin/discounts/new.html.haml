@@ -1,0 +1,4 @@
+%h1 Новая скидка
+- form_for :discount, :url => admin_discounts_path do |f|
+ = render :partial => "form", :locals => {:form => f}
+

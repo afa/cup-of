@@ -1,4 +1,4 @@
-class Admin::SectionsController < ApplicationController
+class Admin::SectionsController < Admin::ApplicationController
   before_filter :get_sections, :only=>[:index]
   before_filter :get_section, :only=>[:show, :edit, :update]
   before_filter :new_section, :only=>[:new, :create]

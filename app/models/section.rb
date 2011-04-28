@@ -3,6 +3,7 @@ class Section < ActiveRecord::Base
 
  belongs_to :parent, :class_name => 'Section', :foreign_key => :parent_id
  has_many :children, :class_name => 'Section', :foreign_key => :parent_id
+ has_and_belongs_to_many :discounts
  has_attached_file :cover
 
  def slow_all_products
@@ -10,7 +11,7 @@ class Section < ActiveRecord::Base
  end
 
  def all_products
-  Product.where(:section_id => self.tree_to_list.map(&:id))
+  Product.where(:active => true, :section_id => self.tree_to_list.map(&:id))
  end
 
  def tree_to_list
@@ -19,6 +20,11 @@ class Section < ActiveRecord::Base
 
  def self.subtree_by_levels(arr)
   return [] if arr.empty?
-  arr | self.subtree_by_levels(self.where(:parent_id => arr.map(&:id)))
+  arr | self.subtree_by_levels(self.where(:active => true, :parent_id => arr.map(&:id)))
+ end
+
+ def self.parents_to_root(init_sections)
+  return [] if init_sections.empty?
+  init_sections | self.parents_to_root(self.where(:id => init_sections.map(&:parent_id).compact.uniq))
  end
 end

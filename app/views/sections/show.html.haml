@@ -19,6 +19,6 @@
   %div{:style=>"padding-top:15px;color:red;"}
    - unless p.in_store?
     %span{:style=>"float:right;color:#005826;"} Нет на складе
-  %div{:style=>"padding-top:15px;color:red;"} Цена #{p.price} руб.
+  %div{:style=>"padding-top:15px;color:red;"} Цена #{p.current_price(current_user)} руб.
   %div{:style=>":height:20px;clear: both;"}
 = will_paginate(@products)

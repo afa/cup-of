@@ -43,12 +43,11 @@ namespace :xml do
     products = Product.where(:name=>val[:name].strip).all if products.empty?
     if products.empty?
      nm = val[:name].gsub(/\s*\(*Gutenberg\)*\s*/u, ' ').strip
-     #puts "try #{nm}"
      products = Product.where(:name=>nm).all
     end
     if products.empty?
      nfnd += 1
-     puts "not found #{nm}"
+     #puts "not found #{nm}"
      next
     end
     if val.has_key?(:count)
@@ -60,7 +59,7 @@ namespace :xml do
     end
     fnd += 1
    end
-   puts "found #{fnd}, not #{nfnd}"
+   #puts "found #{fnd}, not #{nfnd}"
   end
  end
 end

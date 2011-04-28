@@ -1,4 +1,4 @@
-class Admin::ArticlesController < ApplicationController
+class Admin::ArticlesController < Admin::ApplicationController
  before_filter :get_articles, :only=>[:index]
  before_filter :get_article, :only=>[:show, :edit, :update]
 

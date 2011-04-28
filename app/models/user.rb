@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   attr_accessor :login
   attr_accessible :login
   has_many :purcases
+  has_and_belongs_to_many :discounts
 
   attr_accessor :join_cart
   attr_accessible :join_cart

@@ -1,7 +1,7 @@
 .lenta{:style=>"width:636px;height:102px;vertical-align:center;margin-top:19px;margin-bottom:1px;margin-left:19px;margin-right:1px;"}
  .mordoitems{:style=>"width:600px;"}
   %ul
-   - @m_items.each_with_index do |mord, i|
+   - m_items.each_with_index do |mord, i|
     %li.mordoitem{:style=>"display:#{i > 5 ? 'none' : 'inline-block' };width:100px;height:100px;"}= link_to image_tag(mord.cover(:mord), :style=>"padding:2px;border:0px none;", :alt=>mord.name, :title=>mord.name), product_path(mord.id), :style=>"border:0px;border-style:none;"
 %script{:type=>"text/javascript"}
  jQuery(document).ready(function() {
@@ -11,7 +11,7 @@
  }
  });
  jQuery('div.mordoitems').jcarousel({
- size:#{@m_items.size}, scroll:1,auto:5, itemFallbackDimension:96
+ size:#{m_items.size}, scroll:1,auto:5, itemFallbackDimension:96
  });
  });
 

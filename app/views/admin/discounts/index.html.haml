@@ -1,0 +1,22 @@
+.menu
+ =link_to "Add", new_admin_discount_path
+%table
+ %tr
+  %th Id
+  %th название
+  %th users
+  %th sections
+  %th products
+  %th множитель
+  %th фиксированная добавка
+  %th ДД
+ - @discounts.each do |discount|
+  %tr
+   %td= link_to discount.id.to_s, admin_discount_path(discount.id)
+   %td= discount.name || '--'
+   %td= discount.users.map(&:username).join(', ')
+   %td= discount.sections.map(&:title).join(', ')
+   %td= discount.products.map(&:name).join(', ')
+   %td= discount.multiplier
+   %td= discount.fixed_part
+   %td &nbsp;

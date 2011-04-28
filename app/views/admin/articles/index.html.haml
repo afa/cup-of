@@ -7,7 +7,7 @@
   %th active
   %th on main
   %th date
- - Article.all.each do |article|
+ - @articles.each do |article|
   %tr
    %td= link_to article.id.to_s, edit_admin_article_path(article.id)
    %td= article.name

@@ -9,4 +9,4 @@
     %div{:style=>"height:125px;max-height:125px;overflow:hidden;"}
      %div{:style=>"font-size:14px;font-weight:bold;line-height:15px;margin-bottom:5px;"}= link_to prod.name, product_path(prod.id)
      %div{:style=>"font-size:12px;font-weight:normal;text-align:left;line-height:15px;"}= prod.short_descr #.andand.split(' ')[0, 10].join(' ')
-    %div{:style=>"color:red;font-size:12px;"}= "Цена #{prod.price} руб."
+    %div{:style=>"color:red;font-size:12px;"}= "Цена #{prod.current_price(current_user)} руб."

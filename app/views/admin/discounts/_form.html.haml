@@ -1,0 +1,14 @@
+.form_line
+ = form.label :name, "Название"
+ = form.text_field :name
+.form_line
+ = form.label :description, "Описание"
+ = form.text_area :description
+.form_line
+ = form.label :multiplier, "множитель (<b>a</b>*price+b)".html_safe
+ = form.text_field :multiplier
+.form_line
+ = form.label :fixed_part, "Добавка (a*price+<b>b</b>)".html_safe
+ = form.text_field :fixed_part
+= form.submit "Сохранить"
+
