@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :get_m_items
+#  before_filter :get_m_items
   before_filter :load_cart
 
   rescue_from CanCan::AccessDenied do |exception|
@@ -9,9 +9,9 @@ class ApplicationController < ActionController::Base
   end
 
  protected
-  def get_m_items
-   @m_items = Product.where(:active=>true).order('random()').limit(30)
-  end
+#  def get_m_items
+#   @m_items = Product.where(:active=>true).order('random()').limit(30)
+#  end
 
   def load_cart
    @cart = (session[:cart] || []).map{|item| {:product_id => item[0], :amount => item[1]}}

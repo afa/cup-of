@@ -3,41 +3,43 @@
  %head
   %title= @title || "Чашка чая"
   = stylesheet_link_tag :all
-  = javascript_include_tag :defaults, "jquery.lightbox-0.5.min.js", "jquery.jcarousel.min.js"
+  = javascript_include_tag :defaults, "mordoitems.js", "jquery.lightbox-0.5.min.js", "jquery.jcarousel.min.js"
   = csrf_meta_tag
- %body{:style=>"padding:0px;border:0px;margin:0px;background-color:#a67c52;"}
+ %body.defaults
   %div{:align=>"center"}
-   %table{:style=>"background-color:#fbebd5;width:1008px;cell-spacing:0px;cell-padding:0px;border-spacing:0px;border:0px;text-align:left;border-collapse:collapse;"}
+   %table.body_table
     %tr
      %td{:colspan=>3}
-      %table{:style=>"height:248px;width:1008px;cell-spacing:0px;cell-padding:0px;border:0px;border-spacing:0px;background:left top no-repeat url(#{image_path('up-background.jpg')});"}
+      %table.header
        %tr
         %td{:"vert-align"=>"bottom", :style=>"width:*;vertical-align:bottom;padding-bottom:24px;"}
          = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>"vertical-align:bottom;display:inline-block;"} do |f|
           = f.text_field :q, :class=>"search"
-         %div{:align=>"right", :"vert-align"=>"top", :style=>"width:480px;height:60px;display:inline-block;vertical-align:bottom;"}
-          = link_to image_tag('http://www.mammon.ru/pic/ban88x31_2.gif', :width=>"88px", :height=>"31px", :style=>"border:0px none;"), "http://www.mammon.ru", :style=>"border:0px;border-style:none;"
+         .ad_up{:align=>"right", :"vert-align"=>"top"}
+          = link_to image_tag('http://www.mammon.ru/pic/ban88x31_2.gif', :width=>"88px", :height=>"31px"), "http://www.mammon.ru", :style=>"border:0px;border-style:none;"
         %td{:style=>"width:319px"}
-         %ul.umenu{:style=>"list-style-type:none;"}
-          %li= link_to "На главную", root_path, :class=>'umenu'
-          %li= link_to "Наши контакты", contacts_path, :class=>'umenu'
-          %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path, :class=>'umenu'
-          %li= link_to "Кофе", section_path(Section.find_by_name('Coffee')), :class=>'umenu'
-          %li= link_to "Чай", section_path(Section.find_by_name('Tea')), :class=>'umenu'
+         %ul.umenu
+          %li= link_to "На главную", root_path
+          %li= link_to "Наши контакты", contacts_path
+          %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path
+          %li= link_to "Кофе", section_path(Section.find_by_name('Coffee'))
+          %li= link_to "Чай", section_path(Section.find_by_name('Tea'))
           %li Подарки
           %li{:style=>"padding-bottom:0.5em;"} Аксессуары
           %li= user_signed_in? ? link_to_unless_current("Личный кабинет", profile_path) : link_to_unless_current("Регистрация", new_user_registration_path)
           %li= user_signed_in? ? link_to_unless_current("Выход", destroy_user_session_path) : link_to_unless_current("Вход", new_user_session_path) 
           %li Вопросы и ответы
-          %li= link_to "Доставка и оплата", transport_path, :class => 'umenu'
+          %li= link_to "Доставка и оплата", transport_path
           %li Новости
     %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;background-position:top;"}
      %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
       %div{:style=>"margin-right:5px;padding-right:2px;"}
        = render :partial => 'sections/left_menu_item', :collection => Section.where("parent_id is null and active = 't'").order('position nulls last')
 
-     %td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
-      = render :partial => "main/mordolenta", :locals => {:m_items => @m_items}
+     %td
+      - #{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
+      - #= render :partial => "main/mordolenta", :locals => {:m_items => @m_items}
+      = render_cell :mordolenta, :display
      %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
       %div
        = link_to_unless_current image_tag("korzina2.png", :style=>"margin-top:40px;margin-bottom:10px;border:0px none;"), cart_index_path

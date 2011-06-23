@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,20 +11,25 @@ gem 'pg'
 gem 'unicorn'
 
 # Deploy with Capistrano
+# gem "rake", "0.8.7"
  gem 'capistrano'
  gem "haml-rails"
+ gem "sass"
  gem "andand"
  gem "haml"
  gem "paperclip"
  #gem "paperclip", "2.3.3"
  gem "devise"
  gem "cancan"
- gem "will_paginate", :git=>"http://github.com/mislav/will_paginate.git", :branch=>"rails3"
+# gem "will_paginate", :git=>"https://github.com/mislav/will_paginate.git", :branch=>"rails3"
+ gem "will_paginate", "~>3.0.pre2"
  gem "hpricot"
  gem "ruby_parser"
  gem "sanitize"
  gem "jquery-rails"
  gem "nokogiri"
+ gem "cells"
+ gem "clearance"
 
 # To use debugger
 # gem 'ruby-debug'
@@ -39,17 +44,18 @@ gem 'unicorn'
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
  group :development do
-  gem "bullet", "2.0.0.beta.2"
+  gem "bullet", "~>2.0.0.beta.2"
  end
  group :development, :test do
-  gem "factory_girl"
+  gem "factory_girl_rails"
   gem "database_cleaner"
   gem "cucumber-rails", ">=0.3.2"
-  gem "cucumber"
-  gem "rspec-rails", "~>2.0.0"
-  gem "rspec"
-  gem 'webrat', ">=0.7.2.beta.1"
-  #gem "capybara"
+#  gem "cucumber"
+  gem "rspec-rails"#, "~>2.6.0"
+  gem "rspec-cells"
+#  gem "rspec"
+  #gem 'webrat', ">=0.7.2.beta.1"
+  gem "capybara"
  end
  group :production do
   gem "newrelic_rpm"

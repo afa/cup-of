@@ -1,2 +1,2 @@
 require "factory_girl"
-require "factories"
+#require "factories"
