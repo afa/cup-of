@@ -4,8 +4,5 @@ jQuery(document).ready(function() {
    this.style.display = "inline-block";
   }
  });
- jQuery('div.mordoitems').jcarousel({
-  size:#{m_items.size}, scroll:1,auto:5, itemFallbackDimension:96
- });
 });
 

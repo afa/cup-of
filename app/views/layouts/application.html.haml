@@ -16,7 +16,7 @@
          = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>"vertical-align:bottom;display:inline-block;"} do |f|
           = f.text_field :q, :class=>"search"
          .ad_up{:align=>"right", :"vert-align"=>"top"}
-          = link_to image_tag('http://www.mammon.ru/pic/ban88x31_2.gif', :width=>"88px", :height=>"31px"), "http://www.mammon.ru", :style=>"border:0px;border-style:none;"
+          = link_to image_tag(image_path('ban88x31_2.gif'), :width=>"88px", :height=>"31px"), "http://www.mammon.ru", :style=>"border:0px;border-style:none;"
         %td{:style=>"width:319px"}
          %ul.umenu
           %li= link_to "На главную", root_path
@@ -36,8 +36,8 @@
       %div{:style=>"margin-right:5px;padding-right:2px;"}
        = render :partial => 'sections/left_menu_item', :collection => Section.where("parent_id is null and active = 't'").order('position nulls last')
 
-     %td
-      - #{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
+     - #%td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
+     %td{:style=>"width:652px;height:152px;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
       - #= render :partial => "main/mordolenta", :locals => {:m_items => @m_items}
       = render_cell :mordolenta, :display
      %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}

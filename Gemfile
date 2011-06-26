@@ -29,7 +29,7 @@ gem 'unicorn'
  gem "jquery-rails"
  gem "nokogiri"
  gem "cells"
- gem "clearance"
+# gem "clearance"
 
 # To use debugger
 # gem 'ruby-debug'

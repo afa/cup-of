@@ -6,7 +6,7 @@
      .mbr
       .mtl
        .mtr
-        .mordoitems{:style=>"width:600px;"}
+        .mordoitems{:width=>"600px"}
          %ul
           - @m_items.each_with_index do |mord, i|
            %li.mordoitem{:style=>"display:#{i > 5 ? 'none' : 'inline-block' };"}= link_to image_tag(mord.cover(:mord), :alt=>mord.name, :title=>mord.name), product_path(mord.id)
