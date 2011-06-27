@@ -20,6 +20,10 @@ class MainController < ApplicationController
   def about
   end
 
+  def ping
+   render :layout => false
+  end
+
   def profile
    if user_signed_in?
     @purchases = Purchase.where("user_id = :uid or u_mail = :umail", :uid => current_user.id, :umail => current_user.email).order("id").all
