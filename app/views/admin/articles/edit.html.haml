@@ -3,7 +3,7 @@
 - unless @article.pic_file_name.blank?
  = image_tag @article.pic.path
  = image_tag @article.pic.path
-- form_for @article, :url=>admin_article_path(@article), :method=>:put, :html=>{:multipart=>true} do |f|
+-# - form_for @article, :url=>admin_article_path(@article), :method=>:put, :html=>{:multipart=>true} do |f|
  = render :partial=>'article_form', :locals=>{:f=>f}
-
+= render_cell :article, :form, :article => @article, :url => admin_article_path(@article), :method => :put
 

@@ -1,0 +1,8 @@
+%tr
+ %td= link_to @article.id.to_s, edit_admin_article_path(@article.id)
+ %td= @article.name
+ %td= @article.body.split(" ")[0, 30].join " "
+ %td= @article.active? ? "Да" : "Нет"
+ %td= @article.on_main? ? "Да" : "Нет"
+ %td= @article.created_at
+
