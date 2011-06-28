@@ -29,4 +29,13 @@
  = f.label :section_id, "Section"
  = f.select :section_id, options_from_collection_for_select(Section.all, 'id', 'name', @product.section_id)
 %div
+ = f.label :meta_title, "Заголовок страницы продукта"
+ = f.text_field :meta_title
+%div
+ = f.label :meta_description, "Описание страницы продукта"
+ = f.text_field :meta_description
+%div
+ = f.label :meta_keywords, "Ключевые слова"
+ = f.text_field :meta_keywords
+%div
  = f.submit "Сохранить"

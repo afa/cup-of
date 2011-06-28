@@ -1,10 +1,31 @@
 !!!
 %html
  %head
-  %title= @title || "Чашка чая"
+  %meta{:name=>"robots", :content=>"index, follow"}
+  - if @meta && @meta.is_a?(Hash)
+   %title= @meta[:title] || "Чашка чая"
+   - if @meta[:description]
+    %meta{:name=>"description", :content=>@meta[:description]}
+   - if @meta[:keywords]
+    %meta{:name=>"keywords", :content=>@meta[:keywords]}
+  - else
+   %title Чашка чая
   = stylesheet_link_tag :all
   = javascript_include_tag :defaults, "mordoitems.js", "jquery.lightbox-0.5.min.js", "jquery.jcarousel.min.js"
   = csrf_meta_tag
+  :javascript
+   var _gaq = _gaq || [];
+   _gaq.push(['_setAccount', 'UA-24227301-1']);
+   _gaq.push(['_trackPageview']);
+   (function() {
+    var ga = document.createElement('script');
+    ga.type = 'text/javascript';
+    ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' :'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+   })();
+
  %body.defaults
   %div{:align=>"center"}
    %table.body_table
@@ -37,7 +58,8 @@
        = render :partial => 'sections/left_menu_item', :collection => Section.where("parent_id is null and active = 't'").order('position nulls last')
 
      - #%td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
-     %td{:style=>"width:652px;height:152px;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
+     - #%td{:style=>"width:652px;height:152px;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
+     %td{:style=>"width:642px;height:152px;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
       - #= render :partial => "main/mordolenta", :locals => {:m_items => @m_items}
       = render_cell :mordolenta, :display
      %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
@@ -56,6 +78,7 @@
       .content{:style=>"text-align:justify;padding-right:5px;"}
        = yield
      %td{:style=>"width:120px;border-bottom:black solid 1px;"}
+      = render_cell :article, :display_linked
     %tr
      %td{:style=>"border-right:black solid 1px;height:20px;margin-right:5px;"} &nbsp;
      %td{:style=>"height:20px;background-color:white;border-right:black solid 1px;", :align=>"center"}= link_to image_tag("bun2.gif", :style=>"border:0px;padding:5px;"), "http://www.mammon.ru"

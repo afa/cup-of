@@ -3,7 +3,7 @@ class MainController < ApplicationController
  before_filter :authenticate_user!, :only => :profile
 
   def index
-   @article = Article.where(:active=>true, :on_main=>true).order("created_at desc").first
+   #@article = Article.where(:active=>true, :on_main=>true).order("created_at desc").first
   end
 
   def search

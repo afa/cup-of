@@ -26,3 +26,15 @@ Factory.define :user do |u|
  u.email { Factory.next(:user_mail) }
  u.password { Factory.next(:user_mail) }
 end
+
+Factory.sequence :article_name do |n|
+ "art_#{n}"
+end
+Factory.sequence :article_body do |n|
+ "article body lost somwhere in text indexed #{n}."
+end
+Factory.define :article do |a|
+ a.name { Factory.next :article_name }
+ a.body { Factory.next :article_body }
+ a.active { true }
+end
