@@ -10,7 +10,7 @@ describe ArticleCell do
     end
     
     context "rendering display_short" do
-      subject { render_cell(:article, :display_short, article) }
+      subject { render_cell(:article, :display_short, :article => article) }
   
       it { should have_xpath("//div[@class='article']", :text=>article.shorten_body)}
     end
