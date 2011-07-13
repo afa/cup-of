@@ -26,7 +26,7 @@ CupOf::Application.configure do
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store, 'localhost:11211', {:namespace => "cupof", :expires_in => 1.hour}
+  config.cache_store = :dalli_store, '127.0.0.1:11211', {:namespace => "cupof", :expires_in => 1.hour}
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this
