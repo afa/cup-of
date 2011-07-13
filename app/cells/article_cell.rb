@@ -1,7 +1,8 @@
 class ArticleCell < Cell::Rails
 
-  def display
-    render
+  def display(args)
+   @article = args[:article]
+   render
   end
 
   def display_on_main
@@ -9,8 +10,9 @@ class ArticleCell < Cell::Rails
    render
   end
 
-  def display_short
-    render
+  def display_short(args)
+   @article = args[:article]
+   render
   end
 
   def display_linked

@@ -47,7 +47,7 @@ gem 'unicorn'
   gem "bullet", "~>2.0.0.beta.2"
  end
  group :development, :test do
-  gem "factory_girl_rails"
+  gem "factory_girl_rails", ">=1.1.rc1"
   gem "database_cleaner"
   gem "cucumber-rails", ">=0.3.2"
 #  gem "cucumber"

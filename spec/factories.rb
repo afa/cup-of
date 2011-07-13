@@ -1,40 +1,48 @@
-Factory.sequence :section_name do |n|
- "section_#{n}"
-end
-Factory.define :section do |s|
- s.active {true}
- s.name { Factory.next(:section_name) }
-end
+FactoryGirl.define do
+ sequence :section_name do |n|
+  "section_#{n}"
+ end
 
-Factory.sequence :product_name do |n|
- "product_#{n}"
-end
-Factory.define :product do |s|
- s.active {true}
- s.name { Factory.next(:product_name) }
-end
+ factory :section do
+  active true
+  name { Factory.next(:section_name) }
+ end
 
-Factory.define :discount do |d|
- d.start_at { 1.days.ago }
- d.stop_at { 1.day.from_now }
-end
+ sequence :product_name do |n|
+  "product_#{n}"
+ end
+ factory :product do
+  active {true}
+  name { Factory.next(:product_name) }
+ end
 
-Factory.sequence :user_mail do |n|
- "u_#{n}@example.com"
-end
-Factory.define :user do |u|
- u.email { Factory.next(:user_mail) }
- u.password { Factory.next(:user_mail) }
-end
+ factory :discount do
+  start_at { 1.days.ago }
+  stop_at { 1.day.from_now }
+ end
 
-Factory.sequence :article_name do |n|
- "art_#{n}"
-end
-Factory.sequence :article_body do |n|
- "article body lost somwhere in text indexed #{n}."
-end
-Factory.define :article do |a|
- a.name { Factory.next :article_name }
- a.body { Factory.next :article_body }
- a.active { true }
+ sequence :user_mail do |n|
+  "u_#{n}@example.com"
+ end
+ factory :user do
+  email { Factory.next(:user_mail) }
+  username { email.to_s.gsub("@", '_') }
+  password { Factory.next(:user_mail) }
+  password_confirmation { password }
+  factory :admin do
+   username "kat"
+  end
+ end
+
+ sequence :article_name do |n|
+  "art_#{n}"
+ end
+ sequence :article_body do |n|
+  "article body lost somwhere in text indexed #{n}."
+ end
+ factory :article do
+  name { Factory.next :article_name }
+  body { Factory.next :article_body }
+  active { true }
+ end
 end

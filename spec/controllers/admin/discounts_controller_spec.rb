@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Admin::DiscountsController do
- let(:discount) {Factory(:discount)}
+ let(:discount) {FactoryGirl.create(:discount)}
  context "with user" do
   before do
    @request.env["devise.mapping"] = Devise.mappings[:user]
    sign_in user
   end
-  let(:user) {Factory(:user, :username => 'kat')}
+  let(:user) {FactoryGirl.create(:user, :username => 'kat')}
 
   describe "GET 'index'" do
     it "should be successful" do
@@ -52,7 +52,7 @@ describe Admin::DiscountsController do
   end
  end
  context "when anonimous" do
-  let(:user) {Factory(:user)}
+  let(:user) {FactoryGirl.create(:user)}
   it "should redirect on get index" do
    get :index
    response.should redirect_to(root_path)

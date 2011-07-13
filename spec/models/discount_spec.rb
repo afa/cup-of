@@ -3,9 +3,9 @@ require 'spec_helper'
 describe Discount do
   context "for active_for_time" do
    before do
-    @discount = Factory(:discount)
-    @old_discount = Factory(:discount, :stop_at => 1.hour.ago)
-    @future_discount = Factory(:discount, :start_at => 1.hour.from_now)
+    @discount = FactoryGirl.create(:discount)
+    @old_discount = FactoryGirl.create(:discount, :stop_at => 1.hour.ago)
+    @future_discount = FactoryGirl.create(:discount, :start_at => 1.hour.from_now)
    end
    it "should be active only valid discount" do
     Discount.active_now.all.should include(@discount)
@@ -15,12 +15,12 @@ describe Discount do
   end
   context "for active_for_user and active_without_user" do
    before do
-    @user = Factory(:user)
-    @user2 = Factory(:user)
-    @discount = Factory(:discount)
-    @nm_discount = Factory(:discount)
-    @nu_discount = Factory(:discount)
-    @old_discount = Factory(:discount, :stop_at => 1.hour.ago)
+    @user = FactoryGirl.create(:user)
+    @user2 = FactoryGirl.create(:user)
+    @discount = FactoryGirl.create(:discount)
+    @nm_discount = FactoryGirl.create(:discount)
+    @nu_discount = FactoryGirl.create(:discount)
+    @old_discount = FactoryGirl.create(:discount, :stop_at => 1.hour.ago)
     @user.discounts << @discount << @old_discount
     #@user.save
     @user2.discounts << @nm_discount
@@ -41,14 +41,14 @@ describe Discount do
   context "for active_for_product" do
    context "where product has discount" do
     before do
-     @discount = Factory(:discount)
-     @s_discount = Factory(:discount)
-     @p_discount = Factory(:discount)
-     @p_section = Factory(:section)
-     @section = Factory(:section, :parent_id => @p_section.id)
+     @discount = FactoryGirl.create(:discount)
+     @s_discount = FactoryGirl.create(:discount)
+     @p_discount = FactoryGirl.create(:discount)
+     @p_section = FactoryGirl.create(:section)
+     @section = FactoryGirl.create(:section, :parent_id => @p_section.id)
      @section.discounts << @s_discount
      @p_section.discounts << @p_discount
-     @product = Factory(:product, :section_id => @section.id)
+     @product = FactoryGirl.create(:product, :section_id => @section.id)
      @product.discounts << @discount
     end
     it "should return valid discount" do
@@ -60,10 +60,10 @@ describe Discount do
    end
    context "where product section has discount" do
     before do
-     @s_discount = Factory(:discount)
-     @p_discount = Factory(:discount)
-     @p_section = Factory(:section)
-     @section = Factory(:section, :parent_id => @p_section.id)
+     @s_discount = FactoryGirl.create(:discount)
+     @p_discount = FactoryGirl.create(:discount)
+     @p_section = FactoryGirl.create(:section)
+     @section = FactoryGirl.create(:section, :parent_id => @p_section.id)
      #@section.discounts << @s_discount
      @p_section.discounts << @p_discount
     end
@@ -80,16 +80,16 @@ describe Discount do
    end
    context "for current" do
     before do
-     @user = Factory(:user)
-     @discount = Factory(:discount)
-     @u_discount = Factory(:discount)
-     @up_discount = Factory(:discount)
-     @s_discount = Factory(:discount)
-     @p_discount = Factory(:discount)
-     @p_section = Factory(:section)
-     @section = Factory(:section, :parent_id => @p_section.id)
+     @user = FactoryGirl.create(:user)
+     @discount = FactoryGirl.create(:discount)
+     @u_discount = FactoryGirl.create(:discount)
+     @up_discount = FactoryGirl.create(:discount)
+     @s_discount = FactoryGirl.create(:discount)
+     @p_discount = FactoryGirl.create(:discount)
+     @p_section = FactoryGirl.create(:section)
+     @section = FactoryGirl.create(:section, :parent_id => @p_section.id)
      @section.discounts << @s_discount
-     @product = Factory(:product, :section_id => @section.id)
+     @product = FactoryGirl.create(:product, :section_id => @section.id)
      @product.discounts << @discount << @up_discount
      @p_section.discounts << @p_discount
      @user.discounts << @u_discount << @up_discount

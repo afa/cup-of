@@ -13,7 +13,7 @@
    %td #{cart.product.name}
    %td #{cart.amount}
    - prc = cart.product.price
-   - cprc = cart.product.current_price(current_user)
+   - cprc = cart.product.current_price(defined?(current_user) ? current_user : nil)
    %td #{cprc}
    %td #{cart.amount * cprc}
    dscnt += (prc * cart.amount) - (cprc * cart.amount)
@@ -21,7 +21,7 @@
  %tr
   %td{:colspan=>4} Ваша скидка составила: #{dscnt} рублей
  %tr
-  %=#td{:colspan=>4} Итого к оплате: #{@purchase.cart_items.inject(0.0){|res, cart| res + (cart.amount * cart.product.price) } } рублей
+  -# %td{:colspan=>4} Итого к оплате: #{@purchase.cart_items.inject(0.0){|res, cart| res + (cart.amount * cart.product.price) } } рублей
   %td{:colspan=>4} Итого к оплате: #{sum} } рублей
 %p Вы хотите узнать больше о наших скидках и акциях?
 -# Нажмите сюда (ведет ссылка на страницу с акциями)

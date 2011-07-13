@@ -8,12 +8,12 @@ describe Admin::MainController do
    get :index
   end
   context "when admin" do
-   let(:user) {Factory(:user, :username => 'kat')}
+   let(:user) {FactoryGirl.create(:user, :username => 'kat')}
    subject{response}
    it {should be_success}
   end
   context "when non-admin" do
-   let(:user) {Factory(:user)}
+   let(:user) {FactoryGirl.create(:user)}
    subject{response}
    it {should redirect_to(root_path)}
   end
