@@ -55,13 +55,10 @@
     %tr{:style=>"background:url('/images/center-line.jpg') no-repeat;background-position:top;"}
      %td.left_menu{:rowspan=>2, :style=>"border-right:black solid 1px;font:18px verdana;font-weight:bold;height:43px;vertical-align:top;width:220px;max-width:220px;border-bottom:black solid 1px;"}
       %div{:style=>"margin-right:5px;padding-right:2px;"}
-       - cache do
+       - cache('left_column_sections') do
         = render :partial => 'sections/left_menu_item', :collection => Section.where("parent_id is null and active = 't'").order('position nulls last')
 
-     - #%td{:style=>"width:652px;height:152px;background:url(/images/ramka-mordolenta.png) no-repeat;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
-     - #%td{:style=>"width:652px;height:152px;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
      %td{:style=>"width:642px;height:152px;background-position:4px 10px;background-color:white;border-right:black solid 1px;"}
-      - #= render :partial => "main/mordolenta", :locals => {:m_items => @m_items}
       = render_cell :mordolenta, :display
      %td{:style=>"vertical-align:top;width:120px;border-left: 1px black;text-align:center;"}
       %div
