@@ -16,13 +16,14 @@
    - cprc = cart.product.current_price(defined?(current_user) ? current_user : nil)
    %td #{cprc}
    %td #{cart.amount * cprc}
-   dscnt += (prc * cart.amount) - (cprc * cart.amount)
-   sum += cprc * cart.amount
- %tr
-  %td{:colspan=>4} Ваша скидка составила: #{dscnt} рублей
+   - dscnt += (prc * cart.amount) - (cprc * cart.amount)
+   - sum += cprc * cart.amount
+ - if dscnt > 0
+  %tr
+   %td{:colspan=>4} Ваша скидка составила: #{dscnt} рублей
  %tr
   -# %td{:colspan=>4} Итого к оплате: #{@purchase.cart_items.inject(0.0){|res, cart| res + (cart.amount * cart.product.price) } } рублей
-  %td{:colspan=>4} Итого к оплате: #{sum} } рублей
+  %td{:colspan=>4} Итого к оплате: #{sum} рублей
 %p Вы хотите узнать больше о наших скидках и акциях?
 -# Нажмите сюда (ведет ссылка на страницу с акциями)
 %p По любым вопросам, связанным с заказом, оплатой или доставкой, напишите нам на почту <a href="mailto:shop@cup-of.ru">shop@cup-of.ru</a>
