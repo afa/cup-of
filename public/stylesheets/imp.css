@@ -113,6 +113,16 @@ div.ad_up {
 div.ad_up img {
   border: 0px none; }
 
+div.phone.head {
+  width: 480px;
+  height: 60px;
+  display: inline-block;
+  vertical-align: bottom;
+  text-align: right;
+  color: #362f2d;
+  font: 17px verdana;
+ }
+
 div.lenta {
   width: 626px;
   height: 102px;
