@@ -7,6 +7,7 @@ gem 'rails', '3.0.9'
 
 gem 'pg'
 
+gem "rb-readline", :require => "readline"
 # Use unicorn as the web server
 gem 'unicorn'
 

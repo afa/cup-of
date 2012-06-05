@@ -36,7 +36,7 @@
         %td{:"vert-align"=>"bottom", :style=>"width:*;vertical-align:bottom;padding-bottom:24px;"}
          = form_for :search, :url=>'/search', :html=>{:method=>:get, :style=>"vertical-align:bottom;display:inline-block;"} do |f|
           = f.text_field :q, :class=>"search"
-         .ad_up{:align=>"right", :"vert-align"=>"top"}
+         -# .ad_up{:align=>"right", :"vert-align"=>"top"}
           = link_to image_tag(image_path('ban88x31_2.gif'), :width=>"88px", :height=>"31px"), "http://www.mammon.ru", :style=>"border:0px;border-style:none;"
         %td{:style=>"width:319px"}
          %ul.umenu
@@ -46,7 +46,7 @@
           %li= link_to "Кофе", section_path(Section.find_by_name('Coffee'))
           %li= link_to "Чай", section_path(Section.find_by_name('Tea'))
           %li Подарки
-          %li{:style=>"padding-bottom:0.5em;"} Аксессуары
+          %li{:style=>"padding-bottom:0.5em;"}= link_to "Аксессуары", section_path(Section.find_by_name("Acc"))
           %li= user_signed_in? ? link_to_unless_current("Личный кабинет", profile_path) : link_to_unless_current("Регистрация", new_user_registration_path)
           %li= user_signed_in? ? link_to_unless_current("Выход", destroy_user_session_path) : link_to_unless_current("Вход", new_user_session_path) 
           %li Вопросы и ответы
@@ -76,7 +76,8 @@
       .content{:style=>"text-align:justify;padding-right:5px;"}
        = yield
      %td{:style=>"width:120px;border-bottom:black solid 1px;"}
-      = render_cell :article, :display_linked
+      &nbsp;
+      -# = render_cell :article, :display_linked
     %tr
      %td{:style=>"border-right:black solid 1px;height:20px;margin-right:5px;"} &nbsp;
      %td{:style=>"height:20px;background-color:white;border-right:black solid 1px;", :align=>"center"}= link_to image_tag("bun2.gif", :style=>"border:0px;padding:5px;"), "http://www.mammon.ru"
