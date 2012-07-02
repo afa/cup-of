@@ -17,7 +17,7 @@ CupOf::Application.routes.draw do
  end
  root :to => "main#index"
  match '/contacts' => 'main#contacts', :as => :contacts
- match '/about' => 'main#about', :as => :about
+ #match '/about' => 'main#about', :as => :about
  match '/ping' => 'main#ping', :as => :ping
  match '/search' => 'main#search', :as => :search
  match '/transport' => 'main#transport', :as => :transport

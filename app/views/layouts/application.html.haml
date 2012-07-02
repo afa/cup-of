@@ -44,7 +44,7 @@
          %ul.umenu
           %li= link_to "На главную", root_path
           %li= link_to "Наши контакты", contacts_path
-          %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path
+          -# %li{:style=>"padding-bottom:0.5em;"}= link_to "О нас", about_path
           %li= link_to "Кофе", section_path(Section.find_by_name('Coffee'))
           %li= link_to "Чай", section_path(Section.find_by_name('Tea'))
           %li Подарки

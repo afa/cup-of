@@ -17,8 +17,8 @@ class MainController < ApplicationController
   def transport
   end
 
-  def about
-  end
+  #def about
+  #end
 
   def ping
    render :layout => false
