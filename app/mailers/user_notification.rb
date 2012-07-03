@@ -1,3 +1,4 @@
+#coding: UTF-8
 class UserNotification < ActionMailer::Base
   default :from => "shop@cup-of.ru"
 
