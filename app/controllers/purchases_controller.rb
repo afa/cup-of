@@ -8,7 +8,7 @@ class PurchasesController < ApplicationController
      @cart.each{|item| purchase.create item }
      @cart = []
      session[:cart] = []
-     UserNotification.purchase_created(purchase).deliver
+     UserNotification.purchase_created(purchase).deliver unless purchase.u_mail.blank?
     else
      redirect_to :back
     end
@@ -18,7 +18,7 @@ class PurchasesController < ApplicationController
      @cart.each{|item| purchase.cart_items.create item }
      @cart = []
      session[:cart] = []
-     UserNotification.purchase_created(purchase).deliver
+     UserNotification.purchase_created(purchase).deliver unless purchase.u_mail.blank?
     else
      redirect_to :back
     end
