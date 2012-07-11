@@ -31,7 +31,7 @@ gem 'unicorn'
  gem "nokogiri"
  gem "cells"
  gem "airbrake"
- gem "uniform_notifier"
+ gem "uniform_notifier", "1.0.1"
 # gem "clearance"
 
 # To use debugger
