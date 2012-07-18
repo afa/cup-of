@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class MainController < ApplicationController
 
  before_filter :authenticate_user!, :only => :profile
