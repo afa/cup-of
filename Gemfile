@@ -51,7 +51,7 @@ gem 'unicorn'
  end
  group :development, :test do
   gem "factory_girl", "~>2.0"
-  gem "factory_girl_rails", ">=1.1.rc1"
+  gem "factory_girl_rails", "~>1.4.0"
   gem "database_cleaner"
   gem "cucumber-rails", ">=0.3.2"
 #  gem "cucumber"
